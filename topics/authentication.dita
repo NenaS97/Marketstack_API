@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="authentication">
+
+<title>Authentication</title>
+<shortdesc>All requests to the Marketstack API must be authenticated using an access key. The access key identifies the client application and determines the level of access based on the selected subscription plan. It is passed as a query parameter with each API request.</shortdesc>
+
+<taskbody>
+<prereq>
+<sectiondiv>
+<p><b>Before you begin</b></p>
+<p>Before making API requests, ensure that you have:</p>
+<ul>
+<li>A valid Marketstack account</li>
+<li>An active API access key</li>
+<li>The base URL for the Marketstack API</li>
+</ul>
+</sectiondiv>
+</prereq>
+
+<context>
+<sectiondiv>
+<p><b>Authenticate an API request</b></p>
+<p>To authenticate a request, include the <codeph>access_key</codeph> parameter in the request URL.</p>
+</sectiondiv>
+</context>
+
+<steps>
+
+<step>
+<cmd>Start with the base API URL.</cmd>
+</step>
+
+<step>
+<cmd>Append the endpoint you want to access.</cmd>
+</step>
+
+<step>
+<cmd>Add the <codeph>access_key</codeph> query parameter with your API key value.</cmd>
+</step>
+
+<step>
+<cmd>Include any additional query parameters required by the endpoint.</cmd>
+</step>
+
+</steps>
+
+<example>
+<p><b>Example:</b></p>
+<p>The following example shows an authenticated request for end-of-day stock data:</p>
+
+<codeblock outputclass="bash">
+/eod?access_key=YOUR_ACCESS_KEY&amp;symbols=MSFT
+</codeblock>
+
+<p>Replace <codeph>YOUR_ACCESS_KEY</codeph> with your actual API key.</p>
+</example>
+
+<postreq>
+<note>
+<ul>
+<li>The <codeph>access_key</codeph> parameter is required for every request.</li>
+<li>If the access key is missing or invalid, the API returns an authentication error.</li>
+<li>For security reasons, do not expose your access key in public repositories or client-side code.</li>
+</ul>
+</note>
+</postreq>
+
+</taskbody>
+</task>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="end-of-date-data">
+
+<title>End-of-Day Stock Data</title>
+
+<refbody>
+<section>
+<p>The <codeph>/eod</codeph> endpoint provides end-of-day (EOD) price data for publicly traded companies. It returns historical daily market information such as opening price, closing price, daily high and low, and trading volume for one or more stock ticker symbols.</p>
+<p>The response includes market data records grouped by trading date and supports pagination when multiple records are returned.</p>
+</section>
+
+<section>
+<title>Endpoint</title>
+<p>This endpoint retrieves end-of-day stock data for the specified ticker symbols.</p>
+<codeblock outputclass="bash">
+GET /eod
+</codeblock>
+</section>
+
+<section>
+<title>Query Parameters</title> 
+<p>The following query parameters can be used to customize the request and control the data returned by the API.</p>
+
+<table frame="all">
+<tgroup cols="3" colsep="1" rowsep="1">
+<colspec colname="param" colwidth="1*"/>
+<colspec colname="reqd" colwidth="1*"/>
+<colspec colname="desc" colwidth="2*"/>
+
+<thead>
+<row>
+<entry>Parameter</entry>
+<entry>Required</entry>
+<entry>Description</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry>access_key</entry>
+<entry>Yes</entry>
+<entry>Your Marketstack API access key used to authenticate the request.</entry>
+</row>
+
+<row>
+<entry>symbols</entry>
+<entry>Yes</entry>
+<entry>One or more stock ticker symbols. Multiple symbols can be provided as a comma-separated list (for example, <codeph>MSFT,AAPL</codeph>)</entry>
+</row>
+
+<row>
+<entry>limit</entry>
+<entry>No</entry>
+<entry>Number of records returned per request.</entry>
+</row>
+
+<row>
+<entry>offset</entry>
+<entry>No</entry>
+<entry>Number of records to skip before starting to return results.</entry>
+</row>
+
+</tbody>
+</tgroup>
+</table>
+</section>
+
+<section>
+<title>Example Request</title>
+<p>The following example shows a basic request for retrieving end-of-day data for a single stock symbol.</p>
+
+<codeblock outputclass="bash">
+/eod?access_key=YOUR_ACCESS_KEY&amp;symbols=MSFT
+</codeblock>
+</section>
+
+<section>
+<title>Example Response</title>
+<p>The example below shows a sample response returned by the API for an end-of-day data request.</p>
+<p>The response has been trimmed to include a single record for readability.</p>
+
+<codeblock outputclass="json">
+{
+    "pagination": {
+        "limit": 100,
+        "offset": 0,
+        "count": 100,
+        "total": 251
+    },
+    "data": [
+        {
+            "open": 466.46,
+            "high": 468.2,
+            "low": 457.1701,
+            "close": 459.38,
+            "volume": 28184302.0,
+            "adj_high": 468.2,
+            "adj_low": 457.17,
+            "adj_close": 459.38,
+            "adj_open": 466.46,
+            "adj_volume": 28184302.0,
+            "split_factor": 1.0,
+            "dividend": 0.0,
+            "name": "Microsoft Corporation",
+            "exchange_code": "NASDAQ",
+            "asset_type": "Stock",
+            "price_currency": "USD",
+            "symbol": "MSFT",
+            "exchange": "XNAS",
+            "date": "2026-01-14T00:00:00+0000"
+        }
+        
+    ]
+}
+</codeblock>
+</section>
+
+<section>
+<title>Response Fields</title>
+<p>This section describes commonly used fields in the response. Not all response fields are documented here.</p>
+
+<table frame="all">
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="field" colwidth="1*"/>
+<colspec colname="desc" colwidth="2*"/>
+
+<thead>
+<row>
+<entry>Field</entry>
+<entry>Description</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+<entry>open</entry>
+<entry>Opening price for the trading day.</entry>
+</row>
+
+<row>
+<entry>close</entry>
+<entry>Closing price for the trading day.</entry>
+</row>
+
+<row>
+<entry>high</entry>
+<entry>Highest traded price for the day.</entry>
+</row>
+
+<row>
+<entry>low</entry>
+<entry>Lowest traded price for the day.</entry>
+</row>
+
+<row>
+<entry>volume</entry>
+<entry>Total trading volume for the day.</entry>
+</row>
+
+<row>
+<entry>dividend</entry>
+<entry>Dividend amount paid on the given date, if applicable.</entry>
+</row>
+
+<row>
+<entry>split_factor</entry>
+<entry>Factor used to adjust prices in the event of a stock split.</entry>
+</row>
+
+<row>
+<entry>symbol</entry>
+<entry>Company name associated with the symbol.</entry>
+</row>
+
+<row>
+<entry>exchange_code</entry>
+<entry>Code of the stock exchange.</entry>
+</row>
+
+<row>
+<entry>asset_type</entry>
+<entry>Type of financial instrument (for example, Stock)</entry>
+</row>
+
+<row>
+<entry>price_currency</entry>
+<entry>Currency in which the stock prices are reported.</entry>
+</row>
+
+<row>
+<entry>date</entry>
+<entry>Trading date in ISO 8601 format.</entry>
+</row>
+
+<row>
+<entry></entry>
+<entry></entry>
+</row>
+
+</tbody>
+</tgroup>
+</table>
+
+</section>
+</refbody>
+</reference>

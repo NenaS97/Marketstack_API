@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="tickers">
+
+<title>Tickers Endpoint</title>
+
+<refbody>
+
+<section>
+<p>The Tickers endpoint provides detailed information about stock symbols available through the Marketstack API. It allows users to retrieve metadata about companies, exchanges, and asset types associated with specific ticker symbols.</p>
+This endpoint is useful when validating symbols before requesting market data or when building applications that display company and exchange details alongside stock prices.
+<p></p>
+</section>
+
+<section>
+<title>Endpoint</title>
+<p><b>GET</b><codeph>/tickers</codeph></p>
+<p>This endpoint returns a list of ticker symbols along with descriptive and classification information.</p>
+</section>
+
+<section>
+<title>Query Parameters</title>
+<p>The following query parameters can be used to filter ticker results.</p>
+
+<p><b>access_key</b></p>
+<p>Your unique API access key. This parameter is required for authentication with every request.</p>
+
+<p><b>symbols</b></p>
+<p>One or more ticker symbols to retrieve information for. Multiple symbols can be provided as a comma-separated list.</p>
+
+<p><b>exchange</b></p>
+<p>Filters tickers by a specific exchange code.</p>
+
+<p><b>limit</b></p>
+<p>Specifies the number of results to return per request. Used for pagination.</p>
+
+<p><b>offset</b></p>
+<p>Specifies the starting position of the results. Used together with <codeph>limit</codeph> to paginate through large result sets.</p>
+</section>
+
+<section>
+<title>Example Request</title>
+<p>Here you can describe the request in words before adding your code block:</p>
+<p>This example retrieves ticker information for Apple (AAPL) and Microsoft (MSFT).</p>
+<codeblock>
+{
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "count": 1,
+    "total": 1
+  },
+  "data": [
+    {
+      "name": "Microsoft Corporation",
+      "symbol": "MSFT",
+      "has_intraday": false,
+      "has_eod": true,
+      "stock_exchange": {
+        "name": "NASDAQ - ALL MARKETS",
+        "acronym": "NASDAQ",
+        "mic": "XNAS",
+        "country_code": "US",
+        "city": "NEW YORK",
+        "website": "www.nasdaq.com"
+      }
+    }
+  ]
+}
+</codeblock>
+</section>
+
+<section>
+<title>Response Overview</title>
+<p>A successful request returns a JSON response containing pagination details and an array of ticker objects. Each object represents a single stock symbol and includes identification and classification information.</p>
+</section>
+
+<section>
+<title>Response Fields</title>
+<p>This section describes commonly used fields in the ticker response. Not all fields returned by the API are listed here.</p>
+
+<p><b>symbol</b></p>
+<p>The unique ticker symbol used to identify the stock in the market.</p>
+
+<p><b>name</b></p>
+<p>The full company name associated with the ticker symbol.</p>
+
+<p><b>exchange</b></p>
+<p>The full name of the exchange where the stock is listed.</p>
+
+<p><b>exchange_code</b></p>
+<p>A short code representing the exchange.</p>
+
+<p><b>has_intraday</b></p>
+<p>Indicates whether intraday (minute or hourly) market data is available for this ticker.</p>
+
+<p><b>has_eod</b></p>
+<p>Indicates whether end-of-day (EOD) historical price data is available for this ticker.</p>
+
+<p><b>stock_exchange</b></p>
+<p>Contains detailed information about the exchange where the ticker is listed.</p>
+<ul>
+<li><b>stock_exchange.name</b> - Full name of the exchange</li>
+<li><b>stock_exchange.acronym</b> - Short name of the exchange</li>
+<li><b>stock_exchange.mic</b> - Market Identifier Code</li>
+<li><b>stock_exchange.country_code</b> - Country code of the exchange</li>
+<li><b>stock_exchange.city</b> - City where the exchange is located</li>
+<li><b>stock_exchange.website</b> - Official exchange website</li>
+</ul>
+
+<p><b>currency</b></p>
+<p>The currency in which the stock is traded.</p>
+
+<p><b>asset_type</b></p>
+<p>Indicates the type of financial instrument, such as Stock or ETF.</p>
+</section>
+
+<section>
+<title>Pagination</title>
+<p>Ticker results may be paginated when large datasets are returned. The <codeph>limit</codeph> and <codeph>offset</codeph> parameters can be used to navigate through pages of results. Pagination details are included in the <codeph>pagination</codeph> object in the API response.</p>
+</section>
+
+<section>
+<title>When to Use This Endpoint</title>
+<p>You should use the Tickers endpoint when:</p>
+<ul>
+<li>Verifying that a stock symbol exists before requesting price data</li>
+<li>Displaying company or exchange information in an application</li>
+<li>Filtering stocks by exchange or country</li>
+<li>Building search or discovery features for financial data applications</li>
+</ul>
+</section>
+
+</refbody>
+</reference>

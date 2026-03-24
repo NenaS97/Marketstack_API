@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="marketstack-api">
+
+<title>INDEX</title>
+<topicref href="topics/overview.dita" navtitle="Overview"/>  
+<topicref href="topics/authentication.dita" navtitle="Authentication"/>
+<topicref href="topics/eod-data.dita" navtitle="End-of-Day Stock Data"/>
+<topicref href="topics/errors.dita" navtitle="Errors"/>
+<topicref href="topics/tickers.dita" navtitle="Tickers Endpoint"/>
+<topicref href="topics/usecase.dita" navtitle="Example Use Cases"/>
+</map>

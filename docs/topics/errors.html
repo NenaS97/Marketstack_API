@@ -1,0 +1,109 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2026"><meta name="generator" content="DITA-OT"><title>Errors</title><link rel="stylesheet" type="text/css" href="../../styles/custom.css"></head><body id="errors"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+<a href="../index.html" class="home-btn">← Home</a>
+<h1 class="title topictitle1" id="ariaid-title1">Errors</h1>
+
+<div class="body refbody">
+<section class="section">
+<p class="p">The Marketstack API uses standard HTTP status codes to indicate whether a request was successful or failed. When an error occurs, the API returns a JSON response containing details that help identify and resolve the issue.</p>
+<p class="p">Understanding these responses allows developers to troubleshoot problems efficiently and adjust their requests accordingly.</p>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">HTTP Status Codes</h2>
+
+
+<p class="p">The following table describes common HTTP status codes returned by the Marketstack API and their meanings.</p>
+
+<table class="table frame-all"><caption></caption><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry colsep-1 rowsep-1" id="errors__entry__1">Code</th>
+<th class="entry rowsep-1" id="errors__entry__2">Description</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="errors__entry__1">200 OK</td>
+<td class="entry rowsep-1" headers="errors__entry__2">The request was processed successfully and valid data was returned.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="errors__entry__1">400 Bad Request</td>
+<td class="entry rowsep-1" headers="errors__entry__2">The request is malformed or contains invalid or missing parameters. Review query parameters and formatting.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="errors__entry__1">401 Unauthorized</td>
+<td class="entry rowsep-1" headers="errors__entry__2">The access key is missing, invalid, or not properly included in the request.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="errors__entry__1">403 Forbidden</td>
+<td class="entry rowsep-1" headers="errors__entry__2">The request is valid but not permitted under the current subscription plan or account permissions.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="errors__entry__1">404 Not Found</td>
+<td class="entry rowsep-1" headers="errors__entry__2">The requested endpoint or resource could not be found.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="errors__entry__1">429 Too Many Requests</td>
+<td class="entry rowsep-1" headers="errors__entry__2">The allowed request limit for the current subscription period has been exceeded.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1" headers="errors__entry__1">500 Internal Server Error</td>
+<td class="entry" headers="errors__entry__2">500 Internal Server Error</td>
+</tr>
+
+</tbody></table>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Error Response Format</h2>
+
+
+<p class="p">When a request fails, the API returns an error response in JSON format that provides additional details about the problem. This response typically includes:</p>
+
+<ul class="ul">
+<li class="li">An error message describing what went wrong</li>
+<li class="li">An error code that categorizes the type of failure</li>
+</ul>
+
+<p class="p">These details help determine whether the issue is related to authentication, request structure, usage limits, or server-side conditions.</p>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Common Error Scenarios</h2>
+
+
+<p class="p">The following are common situations in which errors may occur when working with the Marketstack API:</p>
+
+<ul class="ul">
+<li class="li">An access key is missing, incorrect, or expired</li>
+<li class="li">The monthly request limit for the free plan has been exceeded</li>
+<li class="li">Query parameters are misspelled, unsupported, or incorrectly formatted</li>
+<li class="li">Data is requested that is not available under the current subscription tier</li>
+<li class="li">An invalid symbol or exchange code is provided</li>
+</ul>
+
+<p class="p">Recognizing these scenarios can help reduce failed requests and improve integration reliability.</p>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Troubleshooting Tips</h2>
+
+
+<p class="p">If an error occurs, consider the following steps before retrying the request:</p>
+
+<ul class="ul">
+<li class="li">Confirm that the access key is valid and included correctly in the request</li>
+<li class="li">Double-check parameter names, values, and formatting</li>
+<li class="li">Ensure the request does not exceed plan limitations such as monthly request quotas</li>
+<li class="li">Review the HTTP status code and error message returned in the response</li>
+<li class="li">Retry the request after some time if the issue appears to be temporary</li>
+</ul>
+
+<p class="p">These steps can help quickly identify and resolve most common API issues.</p>
+</section>
+
+</div>
+<a href="tickers.html" class="next-btn">Next →</a>
+</article></main></body></html>

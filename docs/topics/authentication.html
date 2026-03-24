@@ -1,0 +1,61 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2026"><meta name="generator" content="DITA-OT"><meta name="description" content="All requests to the Marketstack API must be authenticated using an access key. The access key identifies the client application and determines the level of access based on the selected subscription plan. It is passed as a query parameter with each API request."><title>Authentication</title><link rel="stylesheet" type="text/css" href="../../styles/custom.css"></head><body id="authentication"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+<a href="../index.html" class="home-btn">← Home</a>
+<h1 class="title topictitle1" id="ariaid-title1">Authentication</h1>
+
+
+<div class="body taskbody"><p class="shortdesc">All requests to the Marketstack API must be authenticated using an access key. The access key identifies the client application and determines the level of access based on the selected subscription plan. It is passed as a query parameter with each API request.</p>
+<section class="section prereq">
+<div class="sectiondiv">
+<p class="p"><strong class="ph b">Before you begin</strong></p>
+<p class="p">Before making API requests, ensure that you have:</p>
+<ul class="ul">
+<li class="li">A valid Marketstack account</li>
+<li class="li">An active API access key</li>
+<li class="li">The base URL for the Marketstack API</li>
+</ul>
+</div>
+</section>
+
+<section class="section context">
+<div class="sectiondiv">
+<p class="p"><strong class="ph b">Authenticate an API request</strong></p>
+<p class="p">To authenticate a request, include the <code class="ph codeph">access_key</code> parameter in the request URL.</p>
+</div>
+</section>
+
+<section><ol class="ol steps"><li class="li step">
+<span class="ph cmd">Start with the base API URL.</span>
+</li><li class="li step">
+<span class="ph cmd">Append the endpoint you want to access.</span>
+</li><li class="li step">
+<span class="ph cmd">Add the <code class="ph codeph">access_key</code> query parameter with your API key value.</span>
+</li><li class="li step">
+<span class="ph cmd">Include any additional query parameters required by the endpoint.</span>
+</li></ol></section>
+
+<section class="example">
+<p class="p"><strong class="ph b">Example:</strong></p>
+<p class="p">The following example shows an authenticated request for end-of-day stock data:</p>
+
+<pre class="pre codeblock bash"><code>
+/eod?access_key=YOUR_ACCESS_KEY&amp;symbols=MSFT
+</code></pre>
+
+<p class="p">Replace <code class="ph codeph">YOUR_ACCESS_KEY</code> with your actual API key.</p>
+</section>
+
+<section class="section postreq">
+<div class="note note note_note"><span class="note__title">Note:</span> <div class="note__body">
+<ul class="ul">
+<li class="li">The <code class="ph codeph">access_key</code> parameter is required for every request.</li>
+<li class="li">If the access key is missing or invalid, the API returns an authentication error.</li>
+<li class="li">For security reasons, do not expose your access key in public repositories or client-side code.</li>
+</ul>
+</div></div>
+</section>
+
+</div>
+<a href="eod-data.html" class="next-btn">Next →</a>
+</article></main></body></html>

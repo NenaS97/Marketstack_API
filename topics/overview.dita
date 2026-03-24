@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="overview">
+
+<title>Overview</title>
+<shortdesc>The Marketstack API provides access to stock market data from global financial markets. It enables users to retrieve historical and end-of-day (EOD) price information for publicly traded companies using standard stock ticker symbols.
+The API returns data in JSON format and is suitable for applications that require reliable market data for analysis, reporting, or visualization.</shortdesc>
+
+<conbody>
+<section>
+<title>What data does the API provide?</title>
+
+<p>The Marketstack API provides end-of-day stock market data, including:</p>
+
+<ul>
+<li>Opening, closing, high, and low prices</li>
+<li>Trading volume</li>
+<li>Adjusted price values</li>
+<li>Dividend and split information</li>
+<li>Stock and exchange metadata</li>
+</ul>
+
+</section>
+
+<section>
+<title>Who should use this API?</title>
+
+<p>This API is intended for:</p>
+
+<ul>
+<li>Developers building financial or market-related applications</li>
+<li>Analysts working with historical stock market data</li>
+<li>Data-driven systems that require structured and consistent market data</li>
+</ul>
+</section>
+
+<section>
+<title>How does the API work?</title>
+
+<p>Clients send HTTP requests to specific API endpoints and include an access key for authentication. Requests typically specify one or more stock ticker symbols and optional query parameters to filter or paginate results.</p>
+<p>Responses follow a consistent JSON structure and include pagination details when multiple records are returned.</p>
+</section>
+
+<section>
+<title>What this documentation covers</title>
+
+<p>This documentation explains how to:</p>
+<ul>
+<li>Authenticate API requests</li>
+<li>Retrieve end-of-day stock data</li>
+<li>Understand request parameters and response fields</li>
+<li>Interpret common API errors</li>
+</ul>
+</section>
+
+</conbody>
+</concept>

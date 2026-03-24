@@ -1,0 +1,190 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2026"><meta name="generator" content="DITA-OT"><title>End-of-Day Stock Data</title><link rel="stylesheet" type="text/css" href="../../styles/custom.css"></head><body id="end-of-date-data"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+<a href="../index.html" class="home-btn">← Home</a>
+<h1 class="title topictitle1" id="ariaid-title1">End-of-Day Stock Data</h1>
+
+<div class="body refbody">
+<section class="section">
+<p class="p">The <code class="ph codeph">/eod</code> endpoint provides end-of-day (EOD) price data for publicly traded companies. It returns historical daily market information such as opening price, closing price, daily high and low, and trading volume for one or more stock ticker symbols.</p>
+<p class="p">The response includes market data records grouped by trading date and supports pagination when multiple records are returned.</p>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Endpoint</h2>
+
+<p class="p">This endpoint retrieves end-of-day stock data for the specified ticker symbols.</p>
+<pre class="pre codeblock bash"><code>
+GET /eod
+</code></pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Query Parameters</h2>
+ 
+<p class="p">The following query parameters can be used to customize the request and control the data returned by the API.</p>
+
+<table class="table frame-all"><caption></caption><colgroup><col style="width:25%"><col style="width:25%"><col style="width:50%"></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry colsep-1 rowsep-1" id="end-of-date-data__entry__1">Parameter</th>
+<th class="entry colsep-1 rowsep-1" id="end-of-date-data__entry__2">Required</th>
+<th class="entry rowsep-1" id="end-of-date-data__entry__3">Description</th>
+</tr>
+</thead><tbody class="tbody">
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__1">access_key</td>
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__2">Yes</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__3">Your Marketstack API access key used to authenticate the request.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__1">symbols</td>
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__2">Yes</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__3">One or more stock ticker symbols. Multiple symbols can be provided as a comma-separated list (for example, <code class="ph codeph">MSFT,AAPL</code>)</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__1">limit</td>
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__2">No</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__3">Number of records returned per request.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1" headers="end-of-date-data__entry__1">offset</td>
+<td class="entry colsep-1" headers="end-of-date-data__entry__2">No</td>
+<td class="entry" headers="end-of-date-data__entry__3">Number of records to skip before starting to return results.</td>
+</tr>
+
+</tbody></table>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Example Request</h2>
+
+<p class="p">The following example shows a basic request for retrieving end-of-day data for a single stock symbol.</p>
+
+<pre class="pre codeblock bash"><code>
+/eod?access_key=YOUR_ACCESS_KEY&amp;symbols=MSFT
+</code></pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Example Response</h2>
+
+<p class="p">The example below shows a sample response returned by the API for an end-of-day data request.</p>
+<p class="p">The response has been trimmed to include a single record for readability.</p>
+
+<pre class="pre codeblock json"><code>
+{
+    "pagination": {
+        "limit": 100,
+        "offset": 0,
+        "count": 100,
+        "total": 251
+    },
+    "data": [
+        {
+            "open": 466.46,
+            "high": 468.2,
+            "low": 457.1701,
+            "close": 459.38,
+            "volume": 28184302.0,
+            "adj_high": 468.2,
+            "adj_low": 457.17,
+            "adj_close": 459.38,
+            "adj_open": 466.46,
+            "adj_volume": 28184302.0,
+            "split_factor": 1.0,
+            "dividend": 0.0,
+            "name": "Microsoft Corporation",
+            "exchange_code": "NASDAQ",
+            "asset_type": "Stock",
+            "price_currency": "USD",
+            "symbol": "MSFT",
+            "exchange": "XNAS",
+            "date": "2026-01-14T00:00:00+0000"
+        }
+        
+    ]
+}
+</code></pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Response Fields</h2>
+
+<p class="p">This section describes commonly used fields in the response. Not all response fields are documented here.</p>
+
+<table class="table frame-all"><caption></caption><colgroup><col style="width:33.33333333333333%"><col style="width:66.66666666666666%"></colgroup><thead class="thead">
+<tr class="row">
+<th class="entry colsep-1 rowsep-1" id="end-of-date-data__entry__16">Field</th>
+<th class="entry rowsep-1" id="end-of-date-data__entry__17">Description</th>
+</tr>
+</thead><tbody class="tbody">
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__16">open</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__17">Opening price for the trading day.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__16">close</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__17">Closing price for the trading day.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__16">high</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__17">Highest traded price for the day.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__16">low</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__17">Lowest traded price for the day.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__16">volume</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__17">Total trading volume for the day.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__16">dividend</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__17">Dividend amount paid on the given date, if applicable.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__16">split_factor</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__17">Factor used to adjust prices in the event of a stock split.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__16">symbol</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__17">Company name associated with the symbol.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__16">exchange_code</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__17">Code of the stock exchange.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__16">asset_type</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__17">Type of financial instrument (for example, Stock)</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__16">price_currency</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__17">Currency in which the stock prices are reported.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1 rowsep-1" headers="end-of-date-data__entry__16">date</td>
+<td class="entry rowsep-1" headers="end-of-date-data__entry__17">Trading date in ISO 8601 format.</td>
+</tr>
+
+<tr class="row">
+<td class="entry colsep-1" headers="end-of-date-data__entry__16"></td>
+<td class="entry" headers="end-of-date-data__entry__17"></td>
+</tr>
+
+</tbody></table>
+
+</section>
+</div>
+<a href="errors.html" class="next-btn">Next →</a>
+</article></main></body></html>

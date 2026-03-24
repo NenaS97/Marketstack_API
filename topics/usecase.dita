@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="example_usecases">
+
+<title>Example Use Cases</title>
+
+<conbody>
+<section>
+<p>The Marketstack API can support advanced financial applications by combining historical market data with ticker metadata. Developers can use multiple endpoints together to validate symbols, filter data, and perform basic financial analysis.</p>
+<p>The scenarios below illustrate more practical and analytical uses of the API.</p>
+</section>
+
+<section>
+<title>Use Case 1: Comparing Performance of Multiple Stocks</title>
+<p>An application may allow users to compare how different companies have performed over the same time period. Historical end-of-day data can be retrieved for multiple symbols and used to calculate percentage growth or decline.</p>
+
+<p><b>Endpoint involved</b></p>
+<ul>
+<li><codeph>/eod</codeph></li>
+</ul>
+
+<p><b>Example request</b></p>
+<codeblock outputclass="bash">
+GET https://api.marketstack.com/v1/eod?access_key=YOUR_ACCESS_KEY&amp;symbols=AAPL,MSFT&amp;limit=30
+</codeblock>
+
+<p><b>Example response</b></p>
+<codeblock outputclass="json">
+{
+  "pagination": {
+    "limit": 30,
+    "offset": 0,
+    "count": 30,
+    "total": 30
+  },
+  "data": [
+    {
+      "date": "2026-02-04T00:00:00+0000",
+      "symbol": "AAPL",
+      "open": 272.29,
+      "high": 278.95,
+      "low": 272.29,
+      "close": 276.49,
+      "volume": 90458500
+    },
+    {
+      "date": "2026-02-04T00:00:00+0000",
+      "symbol": "MSFT",
+      "open": 411.0,
+      "high": 419.8,
+      "low": 409.24,
+      "close": 414.19,
+      "volume": 45012374
+    },
+    {
+      "date": "2026-02-03T00:00:00+0000",
+      "symbol": "AAPL",
+      "open": 269.13,
+      "high": 271.875,
+      "low": 267.61,
+      "close": 269.48,
+      "volume": 63714867
+    },
+    {
+      "date": "2026-02-03T00:00:00+0000",
+      "symbol": "MSFT",
+      "open": 422.01,
+      "high": 422.01,
+      "low": 408.57,
+      "close": 411.21,
+      "volume": 56864712
+    }
+  ]
+}
+</codeblock>
+<note>The response has been shortened to highlight the fields most relevant for comparing stock performance.</note>
+</section>
+
+<section>
+<title>Use Case 2: Filtering Stocks by Data Availability</title>
+<p>Before requesting large volumes of historical data, an application may first verify which symbols support end-of-day data. This prevents unnecessary API calls and improves performance.</p>
+<p><b>Endpoint involved</b></p>
+<ul><li><codeph>/tickers</codeph></li>
+</ul>
+
+<p><b>Example request</b></p>
+<codeblock outputclass="bash">
+GET https://api.marketstack.com/v1/tickers?access_key=YOUR_ACCESS_KEY&amp;symbols=AAPL,MSFT,TSLA
+</codeblock>
+
+<p><b>Example response</b></p>
+<codeblock outputclass="json">
+{
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "count": 3,
+    "total": 3
+  },
+  "data": [
+    {
+      "name": "Apple Inc",
+      "symbol": "AAPL",
+      "has_intraday": false,
+      "has_eod": true,
+      "stock_exchange": {
+        "name": "NASDAQ - ALL MARKETS",
+        "mic": "XNAS",
+        "country_code": "US"
+      }
+    },
+    {
+      "name": "Microsoft Corporation",
+      "symbol": "MSFT",
+      "has_intraday": false,
+      "has_eod": true
+    }
+  ]
+}
+</codeblock>
+<note>The response has been shortened to highlight the fields relevant to data availability filtering.</note>
+</section>
+
+<section>
+<title>Use Case 3: Building a Watchlist Monitoring System</title>
+<p>A stock watchlist feature can periodically retrieve the most recent end-of-day data for a set of tracked companies. The application can then detect price changes and notify users of significant movement.</p>
+
+<p><b>Endpoint involved</b></p>
+<ul><li><codeph>/eod</codeph></li>
+</ul>
+
+<p><b>Example request</b></p>
+<codeblock outputclass="bash">
+GET https://api.marketstack.com/v1/eod?access_key=YOUR_ACCESS_KEY&amp;symbols=MSFT,AAPL,GOOGL&amp;limit=1
+</codeblock>
+
+<p><b>Example response</b></p>
+<codeblock outputclass="json">
+{
+  "pagination": {
+    "limit": 3,
+    "offset": 0,
+    "count": 3,
+    "total": 3
+  },
+  "data": [
+    {
+      "symbol": "MSFT",
+      "date": "2026-02-04T00:00:00+0000",
+      "close": 414.19,
+      "volume": 45012374.0
+    },
+    {
+      "symbol": "TSLA",
+      "date": "2026-02-04T00:00:00+0000",
+      "close": 406.01,
+      "volume": 74399400.0
+    },
+    {
+      "symbol": "AAPL",
+      "date": "2026-02-04T00:00:00+0000",
+      "close": 276.49,
+      "volume": 90458500.0
+    }
+  ]
+}
+</codeblock>
+<note>The response has been shortened to highlight the fields most relevant for watchlist monitoring.</note>
+</section>
+
+<section>
+<title>Enriching Market Data with Exchange Metadata</title>
+<p>Financial tools often display not just stock prices, but also exchange information such as where a company is listed. This provides important context for international users.</p>
+
+<p><b>Endpoint involved</b></p>
+<ul><li><codeph>/tickers</codeph></li>
+</ul>
+
+<p><b>Example request</b></p>
+<codeblock outputclass="bash">
+GET https://api.marketstack.com/v1/tickers?access_key=YOUR_ACCESS_KEY&amp;symbols=MSFT
+</codeblock>
+
+<p><b>Example response</b></p>
+<codeblock outputclass="json">
+{
+  "data": [
+    {
+      "name": "Apple Inc",
+      "symbol": "AAPL",
+      "stock_exchange": {
+        "name": "NASDAQ - ALL MARKETS",
+        "acronym": "NASDAQ",
+        "mic": "XNAS",
+        "country_code": "US",
+        "city": "NEW YORK",
+        "website": "www.nasdaq.com"
+      }
+    }
+  ]
+}
+</codeblock>
+<note>The response has been shortened to highlight exchange metadata relevant for market context and regional analysis.</note>
+</section>
+
+<section>
+<title>Summary</title>
+<p>These use cases demonstrate how Marketstack endpoints can be combined to support comparison tools, data validation workflows, monitoring systems, and enriched financial dashboards. Instead of simply retrieving data, applications can use the API strategically to improve efficiency, reliability, and user experience.</p>
+</section>
+</conbody>
+</concept>

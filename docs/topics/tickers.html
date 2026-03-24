@@ -1,0 +1,136 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2026"><meta name="generator" content="DITA-OT"><title>Tickers Endpoint</title><link rel="stylesheet" type="text/css" href="../../styles/custom.css"></head><body id="tickers"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+<a href="../index.html" class="home-btn">← Home</a>
+<h1 class="title topictitle1" id="ariaid-title1">Tickers Endpoint</h1>
+
+<div class="body refbody">
+
+<section class="section">
+<p class="p">The Tickers endpoint provides detailed information about stock symbols available through the Marketstack API. It allows users to retrieve metadata about companies, exchanges, and asset types associated with specific ticker symbols.</p>
+This endpoint is useful when validating symbols before requesting market data or when building applications that display company and exchange details alongside stock prices.
+<p class="p"></p>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Endpoint</h2>
+
+<p class="p"><strong class="ph b">GET</strong><code class="ph codeph">/tickers</code></p>
+<p class="p">This endpoint returns a list of ticker symbols along with descriptive and classification information.</p>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Query Parameters</h2>
+
+<p class="p">The following query parameters can be used to filter ticker results.</p>
+
+<p class="p"><strong class="ph b">access_key</strong></p>
+<p class="p">Your unique API access key. This parameter is required for authentication with every request.</p>
+
+<p class="p"><strong class="ph b">symbols</strong></p>
+<p class="p">One or more ticker symbols to retrieve information for. Multiple symbols can be provided as a comma-separated list.</p>
+
+<p class="p"><strong class="ph b">exchange</strong></p>
+<p class="p">Filters tickers by a specific exchange code.</p>
+
+<p class="p"><strong class="ph b">limit</strong></p>
+<p class="p">Specifies the number of results to return per request. Used for pagination.</p>
+
+<p class="p"><strong class="ph b">offset</strong></p>
+<p class="p">Specifies the starting position of the results. Used together with <code class="ph codeph">limit</code> to paginate through large result sets.</p>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Example Request</h2>
+
+<p class="p">Here you can describe the request in words before adding your code block:</p>
+<p class="p">This example retrieves ticker information for Apple (AAPL) and Microsoft (MSFT).</p>
+<pre class="pre codeblock"><code>
+{
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "count": 1,
+    "total": 1
+  },
+  "data": [
+    {
+      "name": "Microsoft Corporation",
+      "symbol": "MSFT",
+      "has_intraday": false,
+      "has_eod": true,
+      "stock_exchange": {
+        "name": "NASDAQ - ALL MARKETS",
+        "acronym": "NASDAQ",
+        "mic": "XNAS",
+        "country_code": "US",
+        "city": "NEW YORK",
+        "website": "www.nasdaq.com"
+      }
+    }
+  ]
+}
+</code></pre>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Response Overview</h2>
+
+<p class="p">A successful request returns a JSON response containing pagination details and an array of ticker objects. Each object represents a single stock symbol and includes identification and classification information.</p>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Response Fields</h2>
+
+<p class="p">This section describes commonly used fields in the ticker response. Not all fields returned by the API are listed here.</p>
+
+<p class="p"><strong class="ph b">symbol</strong></p>
+<p class="p">The unique ticker symbol used to identify the stock in the market.</p>
+
+<p class="p"><strong class="ph b">name</strong></p>
+<p class="p">The full company name associated with the ticker symbol.</p>
+
+<p class="p"><strong class="ph b">exchange</strong></p>
+<p class="p">The full name of the exchange where the stock is listed.</p>
+
+<p class="p"><strong class="ph b">exchange_code</strong></p>
+<p class="p">A short code representing the exchange.</p>
+
+<p class="p"><strong class="ph b">has_intraday</strong></p>
+<p class="p">Indicates whether intraday (minute or hourly) market data is available for this ticker.</p>
+
+<p class="p"><strong class="ph b">has_eod</strong></p>
+<p class="p">Indicates whether end-of-day (EOD) historical price data is available for this ticker.</p>
+
+<p class="p"><strong class="ph b">stock_exchange</strong></p>
+<p class="p">Contains detailed information about the exchange where the ticker is listed.</p>
+<ul class="ul">
+<li class="li"><strong class="ph b">stock_exchange.name</strong> - Full name of the exchange</li>
+<li class="li"><strong class="ph b">stock_exchange.acronym</strong> - Short name of the exchange</li>
+<li class="li"><strong class="ph b">stock_exchange.mic</strong> - Market Identifier Code</li>
+<li class="li"><strong class="ph b">stock_exchange.country_code</strong> - Country code of the exchange</li>
+<li class="li"><strong class="ph b">stock_exchange.city</strong> - City where the exchange is located</li>
+<li class="li"><strong class="ph b">stock_exchange.website</strong> - Official exchange website</li>
+</ul>
+
+<p class="p"><strong class="ph b">currency</strong></p>
+<p class="p">The currency in which the stock is traded.</p>
+
+<p class="p"><strong class="ph b">asset_type</strong></p>
+<p class="p">Indicates the type of financial instrument, such as Stock or ETF.</p>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">Pagination</h2>
+
+<p class="p">Ticker results may be paginated when large datasets are returned. The <code class="ph codeph">limit</code> and <code class="ph codeph">offset</code> parameters can be used to navigate through pages of results. Pagination details are included in the <code class="ph codeph">pagination</code> object in the API response.</p>
+</section>
+
+<section class="section"><h2 class="title sectiontitle">When to Use This Endpoint</h2>
+
+<p class="p">You should use the Tickers endpoint when:</p>
+<ul class="ul">
+<li class="li">Verifying that a stock symbol exists before requesting price data</li>
+<li class="li">Displaying company or exchange information in an application</li>
+<li class="li">Filtering stocks by exchange or country</li>
+<li class="li">Building search or discovery features for financial data applications</li>
+</ul>
+</section>
+
+</div>
+<a href="usecase.html" class="next-btn">Next →</a>
+</article></main></body></html>

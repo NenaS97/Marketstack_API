@@ -1,0 +1,1008 @@
+{
+  "info": {
+    "_postman_id": "b5d9cdb3-ec10-43b7-b5e7-23c1cacb4d7c",
+    "name": "Marketstack-API",
+    "description": "## Overview\nThis collection is a small **Marketstack API** portfolio for pulling and comparing End-of-Day (EOD) equity data and related ticker metadata.\n\n## What’s included\n- **Compare Multiple Stocks**: Compare EOD performance for multiple symbols (e.g., **AAPL** vs **MSFT**).\n- **Data Availability Filtering**: Retrieve ticker metadata and check whether symbols support EOD data.\n- **Watchlist Monitoring**: Fetch recent EOD prices for a watchlist (e.g., AAPL, MSFT, TSLA).\n- **Exchange Metadata**: Get exchange information for a given symbol (e.g., AAPL).\n\n## Required variables\n- `base_url` — Marketstack API base URL (for example: `http://api.marketstack.com/v1`)\n- `access_key` — Your Marketstack API access key\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31745881",
+    "_collection_link": "https://go.postman.co/collection/31745881-b5d9cdb3-ec10-43b7-b5e7-23c1cacb4d7c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Compare Multiple Stocks",
+      "item": [
+        {
+          "name": "Compare AAPL & MSFT Performance",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/eod?access_key={{access_key}}&symbols=AAPL,MSFT",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "eod"
+              ],
+              "query": [
+                {
+                  "key": "access_key",
+                  "value": "{{access_key}}"
+                },
+                {
+                  "key": "symbols",
+                  "value": "AAPL,MSFT"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Single Stock – AAPL",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/eod?access_key={{access_key}}&symbols=AAPL",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "eod"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_key",
+                      "value": "{{access_key}}"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "AAPL"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 15 Jan 2026 09:54:08 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "x-ratelimit-limit-second",
+                  "value": "5"
+                },
+                {
+                  "key": "x-ratelimit-reset-second",
+                  "value": "1768470849"
+                },
+                {
+                  "key": "x-ratelimit-remaining-second",
+                  "value": "4"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "x-request-time",
+                  "value": "0.145"
+                },
+                {
+                  "key": "x-request-time",
+                  "value": "0.222"
+                },
+                {
+                  "key": "x-apilayer-transaction-id",
+                  "value": "f95e17a9-c8a5-4e0c-a751-6b210a6170b7"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "*"
+                },
+                {
+                  "key": "x-rate-limit",
+                  "value": "0"
+                },
+                {
+                  "key": "x-rate-limit-remaining",
+                  "value": "0"
+                },
+                {
+                  "key": "x-quota-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-quota-remaining",
+                  "value": "98"
+                },
+                {
+                  "key": "x-increment-usage",
+                  "value": "1"
+                },
+                {
+                  "key": "cf-cache-status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "Nel",
+                  "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                },
+                {
+                  "key": "Report-To",
+                  "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=UAHIgwefc1VbvUUAGO7aezM8kPNRmpRdVWdvBXVglfNIUcYDrbCm9wXGjvWPVqk9d%2FaEi3JgJ2ssveBUhWIA16oo94hzm2gWtzRzWK%2BLYUkmqKc%3D\"}]}"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "Server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "CF-RAY",
+                  "value": "9be47d73fcfcd6d8-IAD"
+                },
+                {
+                  "key": "alt-svc",
+                  "value": "h3=\":443\"; ma=86400"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"pagination\": {\n        \"limit\": 100,\n        \"offset\": 0,\n        \"count\": 100,\n        \"total\": 251\n    },\n    \"data\": [\n        {\n            \"open\": 259.49,\n            \"high\": 261.82,\n            \"low\": 256.71,\n            \"close\": 259.96,\n            \"volume\": 39985200,\n            \"adj_high\": 261.82,\n            \"adj_low\": 256.71,\n            \"adj_close\": 259.96,\n            \"adj_open\": 259.49,\n            \"adj_volume\": 40019421,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-14T00:00:00+0000\"\n        },\n        {\n            \"open\": 259.41,\n            \"high\": 261.81,\n            \"low\": 258.39,\n            \"close\": 261.05,\n            \"volume\": 41482227,\n            \"adj_high\": 261.81,\n            \"adj_low\": 258.39,\n            \"adj_close\": 261.05,\n            \"adj_open\": 258.72,\n            \"adj_volume\": 45730847,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-13T00:00:00+0000\"\n        },\n        {\n            \"open\": 259.41,\n            \"high\": 261.3,\n            \"low\": 256.8,\n            \"close\": 260.25,\n            \"volume\": 45056584,\n            \"adj_high\": 261.3,\n            \"adj_low\": 256.8,\n            \"adj_close\": 260.25,\n            \"adj_open\": 259.16,\n            \"adj_volume\": 45263767,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-12T00:00:00+0000\"\n        },\n        {\n            \"open\": 259.075,\n            \"high\": 260.21,\n            \"low\": 256.2201,\n            \"close\": 259.37,\n            \"volume\": 39911019,\n            \"adj_high\": 260.21,\n            \"adj_low\": 256.22,\n            \"adj_close\": 259.37,\n            \"adj_open\": 259.075,\n            \"adj_volume\": 39996967,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-09T00:00:00+0000\"\n        },\n        {\n            \"open\": 256.995,\n            \"high\": 259.28,\n            \"low\": 255.7,\n            \"close\": 259.04,\n            \"volume\": 50211734,\n            \"adj_high\": 259.29,\n            \"adj_low\": 255.7,\n            \"adj_close\": 259.04,\n            \"adj_open\": 257.02,\n            \"adj_volume\": 50419337,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-08T00:00:00+0000\"\n        },\n        {\n            \"open\": 263.2,\n            \"high\": 263.68,\n            \"low\": 259.81,\n            \"close\": 260.33,\n            \"volume\": 48262000,\n            \"adj_high\": 263.68,\n            \"adj_low\": 259.81,\n            \"adj_close\": 260.33,\n            \"adj_open\": 263.2,\n            \"adj_volume\": 48309804,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-07T00:00:00+0000\"\n        },\n        {\n            \"open\": 267,\n            \"high\": 267.55,\n            \"low\": 262.12,\n            \"close\": 262.36,\n            \"volume\": 52282100,\n            \"adj_high\": 267.55,\n            \"adj_low\": 262.12,\n            \"adj_close\": 262.36,\n            \"adj_open\": 267,\n            \"adj_volume\": 52352090,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-06T00:00:00+0000\"\n        },\n        {\n            \"open\": 270.64,\n            \"high\": 271.51,\n            \"low\": 266.14,\n            \"close\": 267.26,\n            \"volume\": 45647200,\n            \"adj_high\": 271.51,\n            \"adj_low\": 266.14,\n            \"adj_close\": 267.26,\n            \"adj_open\": 270.64,\n            \"adj_volume\": 45647190,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-05T00:00:00+0000\"\n        },\n        {\n            \"open\": 272.05,\n            \"high\": 277.8248,\n            \"low\": 269.02,\n            \"close\": 271.01,\n            \"volume\": 37746172,\n            \"adj_high\": 277.84,\n            \"adj_low\": 269,\n            \"adj_close\": 271.01,\n            \"adj_open\": 272.255,\n            \"adj_volume\": 37838054,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-02T00:00:00+0000\"\n        },\n        {\n            \"open\": 273.06,\n            \"high\": 273.68,\n            \"low\": 271.75,\n            \"close\": 271.86,\n            \"volume\": 27293600,\n            \"adj_high\": 273.68,\n            \"adj_low\": 271.75,\n            \"adj_close\": 271.86,\n            \"adj_open\": 273.06,\n            \"adj_volume\": 27293639,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-31T00:00:00+0000\"\n        },\n        {\n            \"open\": 272.835,\n            \"high\": 274.08,\n            \"low\": 272.28,\n            \"close\": 273.08,\n            \"volume\": 22090083,\n            \"adj_high\": 274.08,\n            \"adj_low\": 272.28,\n            \"adj_close\": 273.08,\n            \"adj_open\": 272.81,\n            \"adj_volume\": 22139617,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-30T00:00:00+0000\"\n        },\n        {\n            \"open\": 274.23,\n            \"high\": 274.36,\n            \"low\": 272.35,\n            \"close\": 273.76,\n            \"volume\": 23399554,\n            \"adj_high\": 274.36,\n            \"adj_low\": 272.35,\n            \"adj_close\": 273.76,\n            \"adj_open\": 272.69,\n            \"adj_volume\": 23715213,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-29T00:00:00+0000\"\n        },\n        {\n            \"open\": 274.23,\n            \"high\": 275.37,\n            \"low\": 272.87,\n            \"close\": 273.4,\n            \"volume\": 21004185,\n            \"adj_high\": 275.37,\n            \"adj_low\": 272.86,\n            \"adj_close\": 273.4,\n            \"adj_open\": 274.16,\n            \"adj_volume\": 21521802,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-26T00:00:00+0000\"\n        },\n        {\n            \"open\": 272.34,\n            \"high\": 275.43,\n            \"low\": 272.2,\n            \"close\": 273.81,\n            \"volume\": 17910600,\n            \"adj_high\": 275.43,\n            \"adj_low\": 272.195,\n            \"adj_close\": 273.81,\n            \"adj_open\": 272.34,\n            \"adj_volume\": 17910574,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-24T00:00:00+0000\"\n        },\n        {\n            \"open\": 270.84,\n            \"high\": 272.45,\n            \"low\": 269.56,\n            \"close\": 272.36,\n            \"volume\": 29357314,\n            \"adj_high\": 272.5,\n            \"adj_low\": 269.56,\n            \"adj_close\": 272.36,\n            \"adj_open\": 270.84,\n            \"adj_volume\": 29641999,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-23T00:00:00+0000\"\n        },\n        {\n            \"open\": 272.86,\n            \"high\": 273.88,\n            \"low\": 270.505,\n            \"close\": 270.97,\n            \"volume\": 36445199,\n            \"adj_high\": 273.88,\n            \"adj_low\": 270.505,\n            \"adj_close\": 270.97,\n            \"adj_open\": 272.86,\n            \"adj_volume\": 36571827,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-22T00:00:00+0000\"\n        },\n        {\n            \"open\": 272.145,\n            \"high\": 274.5763,\n            \"low\": 269.9,\n            \"close\": 273.67,\n            \"volume\": 111198501,\n            \"adj_high\": 274.6,\n            \"adj_low\": 269.9,\n            \"adj_close\": 273.67,\n            \"adj_open\": 272.145,\n            \"adj_volume\": 144632048,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-19T00:00:00+0000\"\n        },\n        {\n            \"open\": 273.605,\n            \"high\": 273.62,\n            \"low\": 266.96,\n            \"close\": 272.19,\n            \"volume\": 51509672,\n            \"adj_high\": 273.63,\n            \"adj_low\": 266.95,\n            \"adj_close\": 272.19,\n            \"adj_open\": 273.605,\n            \"adj_volume\": 51630721,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-18T00:00:00+0000\"\n        },\n        {\n            \"open\": 275.01,\n            \"high\": 276.16,\n            \"low\": 271.69,\n            \"close\": 271.84,\n            \"volume\": 49406521,\n            \"adj_high\": 276.16,\n            \"adj_low\": 271.64,\n            \"adj_close\": 271.84,\n            \"adj_open\": 275.01,\n            \"adj_volume\": 50138743,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-17T00:00:00+0000\"\n        },\n        {\n            \"open\": 272.82,\n            \"high\": 275.5,\n            \"low\": 271.79,\n            \"close\": 274.61,\n            \"volume\": 37339504,\n            \"adj_high\": 275.5,\n            \"adj_low\": 271.79,\n            \"adj_close\": 274.61,\n            \"adj_open\": 272.82,\n            \"adj_volume\": 37648628,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-16T00:00:00+0000\"\n        },\n        {\n            \"open\": 280.02,\n            \"high\": 280.05,\n            \"low\": 272.84,\n            \"close\": 274.11,\n            \"volume\": 49752479,\n            \"adj_high\": 280.15,\n            \"adj_low\": 272.84,\n            \"adj_close\": 274.11,\n            \"adj_open\": 280.15,\n            \"adj_volume\": 50409078,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-15T00:00:00+0000\"\n        },\n        {\n            \"open\": 277.795,\n            \"high\": 279.22,\n            \"low\": 276.82,\n            \"close\": 278.28,\n            \"volume\": 38360082,\n            \"adj_high\": 279.22,\n            \"adj_low\": 276.82,\n            \"adj_close\": 278.28,\n            \"adj_open\": 277.9,\n            \"adj_volume\": 39532887,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-12T00:00:00+0000\"\n        },\n        {\n            \"open\": 279.095,\n            \"high\": 279.58,\n            \"low\": 273.81,\n            \"close\": 278.03,\n            \"volume\": 30285187,\n            \"adj_high\": 279.59,\n            \"adj_low\": 273.81,\n            \"adj_close\": 278.03,\n            \"adj_open\": 279.095,\n            \"adj_volume\": 33247986,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-11T00:00:00+0000\"\n        },\n        {\n            \"open\": 277.87,\n            \"high\": 279.75,\n            \"low\": 276.44,\n            \"close\": 278.78,\n            \"volume\": 31806647,\n            \"adj_high\": 279.75,\n            \"adj_low\": 276.44,\n            \"adj_close\": 278.78,\n            \"adj_open\": 277.75,\n            \"adj_volume\": 33038318,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-10T00:00:00+0000\"\n        },\n        {\n            \"open\": 278.16,\n            \"high\": 280.03,\n            \"low\": 276.92,\n            \"close\": 277.18,\n            \"volume\": 31711233,\n            \"adj_high\": 280.03,\n            \"adj_low\": 276.92,\n            \"adj_close\": 277.18,\n            \"adj_open\": 278.16,\n            \"adj_volume\": 31753410,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-09T00:00:00+0000\"\n        },\n        {\n            \"open\": 278.1685,\n            \"high\": 279.6693,\n            \"low\": 276.15,\n            \"close\": 277.89,\n            \"volume\": 35028165,\n            \"adj_high\": 279.6693,\n            \"adj_low\": 276.15,\n            \"adj_close\": 277.89,\n            \"adj_open\": 278.13,\n            \"adj_volume\": 36406317,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-08T00:00:00+0000\"\n        },\n        {\n            \"open\": 280.54,\n            \"high\": 281.14,\n            \"low\": 278.05,\n            \"close\": 278.78,\n            \"volume\": 45584026,\n            \"adj_high\": 281.14,\n            \"adj_low\": 278.05,\n            \"adj_close\": 278.78,\n            \"adj_open\": 280.54,\n            \"adj_volume\": 47265845,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-05T00:00:00+0000\"\n        },\n        {\n            \"open\": 284.095,\n            \"high\": 284.73,\n            \"low\": 278.59,\n            \"close\": 280.7,\n            \"volume\": 42680947,\n            \"adj_high\": 284.73,\n            \"adj_low\": 278.59,\n            \"adj_close\": 280.7,\n            \"adj_open\": 284.095,\n            \"adj_volume\": 43989056,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-04T00:00:00+0000\"\n        },\n        {\n            \"open\": 286.2,\n            \"high\": 288.61,\n            \"low\": 283.54,\n            \"close\": 284.15,\n            \"volume\": 38438153,\n            \"adj_high\": 288.62,\n            \"adj_low\": 283.3,\n            \"adj_close\": 284.15,\n            \"adj_open\": 286.2,\n            \"adj_volume\": 43538687,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-03T00:00:00+0000\"\n        },\n        {\n            \"open\": 283,\n            \"high\": 287.4,\n            \"low\": 282.63,\n            \"close\": 286.19,\n            \"volume\": 53615500,\n            \"adj_high\": 287.4,\n            \"adj_low\": 282.6301,\n            \"adj_close\": 286.19,\n            \"adj_open\": 283,\n            \"adj_volume\": 53669532,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-02T00:00:00+0000\"\n        },\n        {\n            \"open\": 278.01,\n            \"high\": 283.42,\n            \"low\": 276.14,\n            \"close\": 283.1,\n            \"volume\": 46528400,\n            \"adj_high\": 283.42,\n            \"adj_low\": 276.14,\n            \"adj_close\": 283.1,\n            \"adj_open\": 278.01,\n            \"adj_volume\": 46587722,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-01T00:00:00+0000\"\n        },\n        {\n            \"open\": 277.26,\n            \"high\": 279,\n            \"low\": 275.9865,\n            \"close\": 278.85,\n            \"volume\": 19033072,\n            \"adj_high\": 279,\n            \"adj_low\": 275.9865,\n            \"adj_close\": 278.85,\n            \"adj_open\": 277.26,\n            \"adj_volume\": 20135620,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-28T00:00:00+0000\"\n        },\n        {\n            \"open\": 276.96,\n            \"high\": 279.53,\n            \"low\": 276.63,\n            \"close\": 277.55,\n            \"volume\": 33431400,\n            \"adj_high\": 279.53,\n            \"adj_low\": 276.63,\n            \"adj_close\": 277.55,\n            \"adj_open\": 276.96,\n            \"adj_volume\": 33431423,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-26T00:00:00+0000\"\n        },\n        {\n            \"open\": 275.27,\n            \"high\": 280.38,\n            \"low\": 275.25,\n            \"close\": 276.97,\n            \"volume\": 46888700,\n            \"adj_high\": 280.38,\n            \"adj_low\": 275.25,\n            \"adj_close\": 276.97,\n            \"adj_open\": 275.27,\n            \"adj_volume\": 46914220,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-25T00:00:00+0000\"\n        },\n        {\n            \"open\": 270.9,\n            \"high\": 276.98,\n            \"low\": 270.9,\n            \"close\": 275.92,\n            \"volume\": 61882174,\n            \"adj_high\": 277,\n            \"adj_low\": 270.9,\n            \"adj_close\": 275.92,\n            \"adj_open\": 270.9,\n            \"adj_volume\": 65585796,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-24T00:00:00+0000\"\n        },\n        {\n            \"open\": 265.88,\n            \"high\": 273.315,\n            \"low\": 265.82,\n            \"close\": 271.49,\n            \"volume\": 55524271,\n            \"adj_high\": 273.33,\n            \"adj_low\": 265.67,\n            \"adj_close\": 271.49,\n            \"adj_open\": 265.95,\n            \"adj_volume\": 59030832,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-21T00:00:00+0000\"\n        },\n        {\n            \"open\": 270.81,\n            \"high\": 275.43,\n            \"low\": 265.92,\n            \"close\": 266.25,\n            \"volume\": 43720835,\n            \"adj_high\": 275.43,\n            \"adj_low\": 265.92,\n            \"adj_close\": 266.25,\n            \"adj_open\": 270.83,\n            \"adj_volume\": 45823568,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-20T00:00:00+0000\"\n        },\n        {\n            \"open\": 265.525,\n            \"high\": 272.21,\n            \"low\": 265.5,\n            \"close\": 268.56,\n            \"volume\": 35871303,\n            \"adj_high\": 272.21,\n            \"adj_low\": 265.5,\n            \"adj_close\": 268.56,\n            \"adj_open\": 265.525,\n            \"adj_volume\": 40424492,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-19T00:00:00+0000\"\n        },\n        {\n            \"open\": 269.915,\n            \"high\": 270.705,\n            \"low\": 265.32,\n            \"close\": 267.44,\n            \"volume\": 43692217,\n            \"adj_high\": 270.71,\n            \"adj_low\": 265.32,\n            \"adj_close\": 267.44,\n            \"adj_open\": 269.99,\n            \"adj_volume\": 45677278,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-18T00:00:00+0000\"\n        },\n        {\n            \"open\": 268.72,\n            \"high\": 270.49,\n            \"low\": 265.73,\n            \"close\": 267.46,\n            \"volume\": 44918325,\n            \"adj_high\": 270.49,\n            \"adj_low\": 265.73,\n            \"adj_close\": 267.46,\n            \"adj_open\": 268.815,\n            \"adj_volume\": 45018260,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-17T00:00:00+0000\"\n        },\n        {\n            \"open\": 271.05,\n            \"high\": 275.96,\n            \"low\": 269.6,\n            \"close\": 272.41,\n            \"volume\": 47399300,\n            \"adj_high\": 275.96,\n            \"adj_low\": 269.6,\n            \"adj_close\": 272.41,\n            \"adj_open\": 271.05,\n            \"adj_volume\": 47431331,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-14T00:00:00+0000\"\n        },\n        {\n            \"open\": 274.11,\n            \"high\": 276.7,\n            \"low\": 272.09,\n            \"close\": 272.95,\n            \"volume\": 49565800,\n            \"adj_high\": 276.699,\n            \"adj_low\": 272.09,\n            \"adj_close\": 272.95,\n            \"adj_open\": 274.11,\n            \"adj_volume\": 49602794,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-13T00:00:00+0000\"\n        },\n        {\n            \"open\": 275.075,\n            \"high\": 275.73,\n            \"low\": 271.87,\n            \"close\": 273.47,\n            \"volume\": 48058755,\n            \"adj_high\": 275.73,\n            \"adj_low\": 271.7,\n            \"adj_close\": 273.47,\n            \"adj_open\": 275,\n            \"adj_volume\": 48397982,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-12T00:00:00+0000\"\n        },\n        {\n            \"open\": 269.81,\n            \"high\": 275.845,\n            \"low\": 269.8,\n            \"close\": 275.25,\n            \"volume\": 45848160,\n            \"adj_high\": 275.91,\n            \"adj_low\": 269.8,\n            \"adj_close\": 275.25,\n            \"adj_open\": 269.81,\n            \"adj_volume\": 46208318,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-11T00:00:00+0000\"\n        },\n        {\n            \"open\": 268.96,\n            \"high\": 273.73,\n            \"low\": 267.46,\n            \"close\": 269.43,\n            \"volume\": 41282100,\n            \"adj_high\": 273.73,\n            \"adj_low\": 267.455,\n            \"adj_close\": 269.43,\n            \"adj_open\": 268.96,\n            \"adj_volume\": 41312412,\n            \"split_factor\": 1,\n            \"dividend\": 0.26,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-10T00:00:00+0000\"\n        },\n        {\n            \"open\": 269.795,\n            \"high\": 272.29,\n            \"low\": 266.78,\n            \"close\": 268.47,\n            \"volume\": 45140079,\n            \"adj_high\": 272.29,\n            \"adj_low\": 266.77,\n            \"adj_close\": 268.47,\n            \"adj_open\": 269.795,\n            \"adj_volume\": 48227365,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-07T00:00:00+0000\"\n        },\n        {\n            \"open\": 267.89,\n            \"high\": 273.4,\n            \"low\": 267.89,\n            \"close\": 269.77,\n            \"volume\": 45608876,\n            \"adj_high\": 273.4,\n            \"adj_low\": 267.89,\n            \"adj_close\": 269.77,\n            \"adj_open\": 267.89,\n            \"adj_volume\": 51204045,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-06T00:00:00+0000\"\n        },\n        {\n            \"open\": 268.59,\n            \"high\": 271.7,\n            \"low\": 266.93,\n            \"close\": 270.14,\n            \"volume\": 40379287,\n            \"adj_high\": 271.7,\n            \"adj_low\": 266.93,\n            \"adj_close\": 270.14,\n            \"adj_open\": 268.61,\n            \"adj_volume\": 42586288,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-05T00:00:00+0000\"\n        },\n        {\n            \"open\": 268.2425,\n            \"high\": 271.486,\n            \"low\": 267.615,\n            \"close\": 270.04,\n            \"volume\": 49104660,\n            \"adj_high\": 271.486,\n            \"adj_low\": 267.615,\n            \"adj_close\": 270.04,\n            \"adj_open\": 268.325,\n            \"adj_volume\": 49274846,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-04T00:00:00+0000\"\n        },\n        {\n            \"open\": 270.42,\n            \"high\": 270.85,\n            \"low\": 266.25,\n            \"close\": 269.05,\n            \"volume\": 48150989,\n            \"adj_high\": 270.85,\n            \"adj_low\": 266.25,\n            \"adj_close\": 269.05,\n            \"adj_open\": 270.42,\n            \"adj_volume\": 50194583,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-03T00:00:00+0000\"\n        },\n        {\n            \"open\": 276.99,\n            \"high\": 277.32,\n            \"low\": 269.16,\n            \"close\": 270.37,\n            \"volume\": 86096700,\n            \"adj_high\": 277.32,\n            \"adj_low\": 269.16,\n            \"adj_close\": 270.37,\n            \"adj_open\": 276.99,\n            \"adj_volume\": 86167123,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-31T00:00:00+0000\"\n        },\n        {\n            \"open\": 271.99,\n            \"high\": 274.14,\n            \"low\": 268.48,\n            \"close\": 271.4,\n            \"volume\": 68953200,\n            \"adj_high\": 274.14,\n            \"adj_low\": 268.48,\n            \"adj_close\": 271.4,\n            \"adj_open\": 271.99,\n            \"adj_volume\": 69886534,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-30T00:00:00+0000\"\n        },\n        {\n            \"open\": 269.28,\n            \"high\": 271.41,\n            \"low\": 267.11,\n            \"close\": 269.7,\n            \"volume\": 50984000,\n            \"adj_high\": 271.41,\n            \"adj_low\": 267.11,\n            \"adj_close\": 269.7,\n            \"adj_open\": 269.275,\n            \"adj_volume\": 51086742,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-29T00:00:00+0000\"\n        },\n        {\n            \"open\": 268.99,\n            \"high\": 269.89,\n            \"low\": 268.15,\n            \"close\": 269,\n            \"volume\": 41461500,\n            \"adj_high\": 269.89,\n            \"adj_low\": 268.15,\n            \"adj_close\": 269,\n            \"adj_open\": 268.985,\n            \"adj_volume\": 41534759,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-28T00:00:00+0000\"\n        },\n        {\n            \"open\": 264.88,\n            \"high\": 269.12,\n            \"low\": 264.65,\n            \"close\": 268.81,\n            \"volume\": 44701700,\n            \"adj_high\": 269.12,\n            \"adj_low\": 264.6501,\n            \"adj_close\": 268.81,\n            \"adj_open\": 264.88,\n            \"adj_volume\": 44888152,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-27T00:00:00+0000\"\n        },\n        {\n            \"open\": 261.19,\n            \"high\": 264.13,\n            \"low\": 259.18,\n            \"close\": 262.82,\n            \"volume\": 38221700,\n            \"adj_high\": 264.13,\n            \"adj_low\": 259.18,\n            \"adj_close\": 262.82,\n            \"adj_open\": 261.19,\n            \"adj_volume\": 38253717,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-24T00:00:00+0000\"\n        },\n        {\n            \"open\": 259.94,\n            \"high\": 260.62,\n            \"low\": 258.01,\n            \"close\": 259.58,\n            \"volume\": 32647300,\n            \"adj_high\": 260.62,\n            \"adj_low\": 258.0101,\n            \"adj_close\": 259.58,\n            \"adj_open\": 259.94,\n            \"adj_volume\": 32754941,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-23T00:00:00+0000\"\n        },\n        {\n            \"open\": 262.65,\n            \"high\": 262.85,\n            \"low\": 255.43,\n            \"close\": 258.45,\n            \"volume\": 44954300,\n            \"adj_high\": 262.85,\n            \"adj_low\": 255.43,\n            \"adj_close\": 258.45,\n            \"adj_open\": 262.65,\n            \"adj_volume\": 45015254,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-22T00:00:00+0000\"\n        },\n        {\n            \"open\": 261.88,\n            \"high\": 265.29,\n            \"low\": 261.83,\n            \"close\": 262.77,\n            \"volume\": 46659000,\n            \"adj_high\": 265.29,\n            \"adj_low\": 261.83,\n            \"adj_close\": 262.77,\n            \"adj_open\": 261.88,\n            \"adj_volume\": 46695948,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-21T00:00:00+0000\"\n        },\n        {\n            \"open\": 255.89,\n            \"high\": 264.38,\n            \"low\": 255.63,\n            \"close\": 262.24,\n            \"volume\": 90370300,\n            \"adj_high\": 264.375,\n            \"adj_low\": 255.63,\n            \"adj_close\": 262.24,\n            \"adj_open\": 255.885,\n            \"adj_volume\": 90483029,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-20T00:00:00+0000\"\n        },\n        {\n            \"open\": 248.02,\n            \"high\": 253.38,\n            \"low\": 247.27,\n            \"close\": 252.29,\n            \"volume\": 48876500,\n            \"adj_high\": 253.38,\n            \"adj_low\": 247.27,\n            \"adj_close\": 252.29,\n            \"adj_open\": 248.02,\n            \"adj_volume\": 49146961,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-17T00:00:00+0000\"\n        },\n        {\n            \"open\": 248.25,\n            \"high\": 249.04,\n            \"low\": 245.13,\n            \"close\": 247.45,\n            \"volume\": 39698000,\n            \"adj_high\": 249.04,\n            \"adj_low\": 245.13,\n            \"adj_close\": 247.45,\n            \"adj_open\": 248.25,\n            \"adj_volume\": 39776974,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-16T00:00:00+0000\"\n        },\n        {\n            \"open\": 249.49,\n            \"high\": 251.82,\n            \"low\": 247.47,\n            \"close\": 249.34,\n            \"volume\": 33839800,\n            \"adj_high\": 251.82,\n            \"adj_low\": 247.47,\n            \"adj_close\": 249.34,\n            \"adj_open\": 249.485,\n            \"adj_volume\": 33893611,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-15T00:00:00+0000\"\n        },\n        {\n            \"open\": 246.6,\n            \"high\": 248.85,\n            \"low\": 244.7,\n            \"close\": 247.77,\n            \"volume\": 35447900,\n            \"adj_high\": 248.845,\n            \"adj_low\": 244.7,\n            \"adj_close\": 247.77,\n            \"adj_open\": 246.6,\n            \"adj_volume\": 35477986,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-14T00:00:00+0000\"\n        },\n        {\n            \"open\": 249.38,\n            \"high\": 249.69,\n            \"low\": 245.56,\n            \"close\": 247.66,\n            \"volume\": 38104400,\n            \"adj_high\": 249.69,\n            \"adj_low\": 245.56,\n            \"adj_close\": 247.66,\n            \"adj_open\": 249.38,\n            \"adj_volume\": 38142942,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-13T00:00:00+0000\"\n        },\n        {\n            \"open\": 254.94,\n            \"high\": 256.38,\n            \"low\": 244,\n            \"close\": 245.27,\n            \"volume\": 61782400,\n            \"adj_high\": 256.38,\n            \"adj_low\": 244,\n            \"adj_close\": 245.27,\n            \"adj_open\": 254.94,\n            \"adj_volume\": 61999098,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-10T00:00:00+0000\"\n        },\n        {\n            \"open\": 257.81,\n            \"high\": 258,\n            \"low\": 253.14,\n            \"close\": 254.04,\n            \"volume\": 38270200,\n            \"adj_high\": 258,\n            \"adj_low\": 253.14,\n            \"adj_close\": 254.04,\n            \"adj_open\": 257.805,\n            \"adj_volume\": 38322012,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-09T00:00:00+0000\"\n        },\n        {\n            \"open\": 256.52,\n            \"high\": 258.52,\n            \"low\": 256.11,\n            \"close\": 258.06,\n            \"volume\": 36465000,\n            \"adj_high\": 258.52,\n            \"adj_low\": 256.11,\n            \"adj_close\": 258.06,\n            \"adj_open\": 256.52,\n            \"adj_volume\": 36496895,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-08T00:00:00+0000\"\n        },\n        {\n            \"open\": 256.81,\n            \"high\": 257.4,\n            \"low\": 255.43,\n            \"close\": 256.48,\n            \"volume\": 31923700,\n            \"adj_high\": 257.4,\n            \"adj_low\": 255.43,\n            \"adj_close\": 256.48,\n            \"adj_open\": 256.805,\n            \"adj_volume\": 31955776,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-07T00:00:00+0000\"\n        },\n        {\n            \"open\": 257.99,\n            \"high\": 259.07,\n            \"low\": 255.05,\n            \"close\": 256.69,\n            \"volume\": 44292200,\n            \"adj_high\": 259.07,\n            \"adj_low\": 255.05,\n            \"adj_close\": 256.69,\n            \"adj_open\": 257.99,\n            \"adj_volume\": 44664118,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-06T00:00:00+0000\"\n        },\n        {\n            \"open\": 254.67,\n            \"high\": 259.24,\n            \"low\": 253.95,\n            \"close\": 258.02,\n            \"volume\": 49107000,\n            \"adj_high\": 259.24,\n            \"adj_low\": 253.95,\n            \"adj_close\": 258.02,\n            \"adj_open\": 254.665,\n            \"adj_volume\": 49155614,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-03T00:00:00+0000\"\n        },\n        {\n            \"open\": 256.58,\n            \"high\": 258.18,\n            \"low\": 254.15,\n            \"close\": 257.13,\n            \"volume\": 42597200,\n            \"adj_high\": 258.18,\n            \"adj_low\": 254.15,\n            \"adj_close\": 257.13,\n            \"adj_open\": 256.575,\n            \"adj_volume\": 42630239,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-02T00:00:00+0000\"\n        },\n        {\n            \"open\": 255.04,\n            \"high\": 258.79,\n            \"low\": 254.95,\n            \"close\": 255.45,\n            \"volume\": 45889562,\n            \"adj_high\": 258.79,\n            \"adj_low\": 254.93,\n            \"adj_close\": 255.45,\n            \"adj_open\": 255.04,\n            \"adj_volume\": 48713940,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-10-01T00:00:00+0000\"\n        },\n        {\n            \"open\": 254.86,\n            \"high\": 255.92,\n            \"low\": 253.11,\n            \"close\": 254.63,\n            \"volume\": 37666900,\n            \"adj_high\": 255.919,\n            \"adj_low\": 253.11,\n            \"adj_close\": 254.63,\n            \"adj_open\": 254.855,\n            \"adj_volume\": 37704259,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-30T00:00:00+0000\"\n        },\n        {\n            \"open\": 254.56,\n            \"high\": 255,\n            \"low\": 253.01,\n            \"close\": 254.43,\n            \"volume\": 40091100,\n            \"adj_high\": 255,\n            \"adj_low\": 253.01,\n            \"adj_close\": 254.43,\n            \"adj_open\": 254.56,\n            \"adj_volume\": 40127687,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-29T00:00:00+0000\"\n        },\n        {\n            \"open\": 254.1,\n            \"high\": 257.6,\n            \"low\": 253.78,\n            \"close\": 255.46,\n            \"volume\": 46045700,\n            \"adj_high\": 257.6,\n            \"adj_low\": 253.78,\n            \"adj_close\": 255.46,\n            \"adj_open\": 254.095,\n            \"adj_volume\": 46076258,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-26T00:00:00+0000\"\n        },\n        {\n            \"open\": 253.21,\n            \"high\": 257.17,\n            \"low\": 251.71,\n            \"close\": 256.87,\n            \"volume\": 55061300,\n            \"adj_high\": 257.17,\n            \"adj_low\": 251.712,\n            \"adj_close\": 256.87,\n            \"adj_open\": 253.205,\n            \"adj_volume\": 55202075,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-25T00:00:00+0000\"\n        },\n        {\n            \"open\": 255.22,\n            \"high\": 255.74,\n            \"low\": 251.04,\n            \"close\": 252.31,\n            \"volume\": 42265200,\n            \"adj_high\": 255.74,\n            \"adj_low\": 251.04,\n            \"adj_close\": 252.31,\n            \"adj_open\": 255.22,\n            \"adj_volume\": 42303710,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-24T00:00:00+0000\"\n        },\n        {\n            \"open\": 255.88,\n            \"high\": 257.34,\n            \"low\": 253.58,\n            \"close\": 254.43,\n            \"volume\": 60232300,\n            \"adj_high\": 257.34,\n            \"adj_low\": 253.58,\n            \"adj_close\": 254.43,\n            \"adj_open\": 255.875,\n            \"adj_volume\": 60275187,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-23T00:00:00+0000\"\n        },\n        {\n            \"open\": 248.3,\n            \"high\": 256.64,\n            \"low\": 248.12,\n            \"close\": 256.08,\n            \"volume\": 105413200,\n            \"adj_high\": 256.64,\n            \"adj_low\": 248.12,\n            \"adj_close\": 256.08,\n            \"adj_open\": 248.3,\n            \"adj_volume\": 105517416,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-22T00:00:00+0000\"\n        },\n        {\n            \"open\": 241.23,\n            \"high\": 246.3,\n            \"low\": 240.21,\n            \"close\": 245.5,\n            \"volume\": 163470300,\n            \"adj_high\": 246.3,\n            \"adj_low\": 240.2106,\n            \"adj_close\": 245.5,\n            \"adj_open\": 241.225,\n            \"adj_volume\": 163741314,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-19T00:00:00+0000\"\n        },\n        {\n            \"open\": 239.97,\n            \"high\": 241.2,\n            \"low\": 236.65,\n            \"close\": 237.88,\n            \"volume\": 44219200,\n            \"adj_high\": 241.2,\n            \"adj_low\": 236.65,\n            \"adj_close\": 237.88,\n            \"adj_open\": 239.97,\n            \"adj_volume\": 44249576,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-18T00:00:00+0000\"\n        },\n        {\n            \"open\": 238.97,\n            \"high\": 240.1,\n            \"low\": 237.73,\n            \"close\": 238.99,\n            \"volume\": 46435200,\n            \"adj_high\": 240.1,\n            \"adj_low\": 237.7301,\n            \"adj_close\": 238.99,\n            \"adj_open\": 238.97,\n            \"adj_volume\": 46508017,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-17T00:00:00+0000\"\n        },\n        {\n            \"open\": 237.18,\n            \"high\": 241.22,\n            \"low\": 236.3235,\n            \"close\": 238.15,\n            \"volume\": 61246555,\n            \"adj_high\": 241.22,\n            \"adj_low\": 236.3235,\n            \"adj_close\": 238.15,\n            \"adj_open\": 237.175,\n            \"adj_volume\": 63421099,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-16T00:00:00+0000\"\n        },\n        {\n            \"open\": 237,\n            \"high\": 238.19,\n            \"low\": 235.03,\n            \"close\": 236.7,\n            \"volume\": 42583729,\n            \"adj_high\": 238.19,\n            \"adj_low\": 235.03,\n            \"adj_close\": 236.7,\n            \"adj_open\": 237,\n            \"adj_volume\": 42699524,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-15T00:00:00+0000\"\n        },\n        {\n            \"open\": 229.22,\n            \"high\": 234.51,\n            \"low\": 229.02,\n            \"close\": 234.07,\n            \"volume\": 55776500,\n            \"adj_high\": 234.51,\n            \"adj_low\": 229.02,\n            \"adj_close\": 234.07,\n            \"adj_open\": 229.22,\n            \"adj_volume\": 55824216,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-12T00:00:00+0000\"\n        },\n        {\n            \"open\": 226.88,\n            \"high\": 230.45,\n            \"low\": 226.65,\n            \"close\": 230.03,\n            \"volume\": 50150900,\n            \"adj_high\": 230.45,\n            \"adj_low\": 226.65,\n            \"adj_close\": 230.03,\n            \"adj_open\": 226.875,\n            \"adj_volume\": 50208578,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-11T00:00:00+0000\"\n        },\n        {\n            \"open\": 232.19,\n            \"high\": 232.42,\n            \"low\": 225.95,\n            \"close\": 226.79,\n            \"volume\": 83321600,\n            \"adj_high\": 232.42,\n            \"adj_low\": 225.95,\n            \"adj_close\": 226.79,\n            \"adj_open\": 232.185,\n            \"adj_volume\": 83440810,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-10T00:00:00+0000\"\n        },\n        {\n            \"open\": 237,\n            \"high\": 238.78,\n            \"low\": 233.36,\n            \"close\": 234.35,\n            \"volume\": 66153200,\n            \"adj_high\": 238.7805,\n            \"adj_low\": 233.36,\n            \"adj_close\": 234.35,\n            \"adj_open\": 237,\n            \"adj_volume\": 66313918,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-09T00:00:00+0000\"\n        },\n        {\n            \"open\": 239.3,\n            \"high\": 240.15,\n            \"low\": 236.34,\n            \"close\": 237.88,\n            \"volume\": 48959400,\n            \"adj_high\": 240.15,\n            \"adj_low\": 236.34,\n            \"adj_close\": 237.88,\n            \"adj_open\": 239.3,\n            \"adj_volume\": 48999495,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-08T00:00:00+0000\"\n        },\n        {\n            \"open\": 240,\n            \"high\": 241.32,\n            \"low\": 238.49,\n            \"close\": 239.69,\n            \"volume\": 54837300,\n            \"adj_high\": 241.32,\n            \"adj_low\": 238.4901,\n            \"adj_close\": 239.69,\n            \"adj_open\": 239.995,\n            \"adj_volume\": 54870397,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-05T00:00:00+0000\"\n        },\n        {\n            \"open\": 238.45,\n            \"high\": 239.9,\n            \"low\": 236.74,\n            \"close\": 239.78,\n            \"volume\": 47504000,\n            \"adj_high\": 239.8999,\n            \"adj_low\": 236.74,\n            \"adj_close\": 239.78,\n            \"adj_open\": 238.45,\n            \"adj_volume\": 47549429,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-04T00:00:00+0000\"\n        },\n        {\n            \"open\": 237.21,\n            \"high\": 238.85,\n            \"low\": 234.36,\n            \"close\": 238.47,\n            \"volume\": 66302400,\n            \"adj_high\": 238.85,\n            \"adj_low\": 234.36,\n            \"adj_close\": 238.47,\n            \"adj_open\": 237.21,\n            \"adj_volume\": 66061716,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-03T00:00:00+0000\"\n        },\n        {\n            \"open\": 229.25,\n            \"high\": 230.85,\n            \"low\": 226.97,\n            \"close\": 229.72,\n            \"volume\": 43804400,\n            \"adj_high\": 230.85,\n            \"adj_low\": 226.97,\n            \"adj_close\": 229.72,\n            \"adj_open\": 229.25,\n            \"adj_volume\": 44075638,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-09-02T00:00:00+0000\"\n        },\n        {\n            \"open\": 232.51,\n            \"high\": 233.38,\n            \"low\": 231.37,\n            \"close\": 232.14,\n            \"volume\": 39418437,\n            \"adj_high\": 233.38,\n            \"adj_low\": 231.37,\n            \"adj_close\": 232.14,\n            \"adj_open\": 232.51,\n            \"adj_volume\": 39418437,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-08-29T00:00:00+0000\"\n        },\n        {\n            \"open\": 230.81,\n            \"high\": 233.41,\n            \"low\": 229.335,\n            \"close\": 232.56,\n            \"volume\": 37892960,\n            \"adj_high\": 233.41,\n            \"adj_low\": 229.335,\n            \"adj_close\": 232.56,\n            \"adj_open\": 230.82,\n            \"adj_volume\": 38074700,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-08-28T00:00:00+0000\"\n        },\n        {\n            \"open\": 228.61,\n            \"high\": 230.9,\n            \"low\": 228.26,\n            \"close\": 230.49,\n            \"volume\": 31200700,\n            \"adj_high\": 230.9,\n            \"adj_low\": 228.26,\n            \"adj_close\": 230.49,\n            \"adj_open\": 228.61,\n            \"adj_volume\": 31259513,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-08-27T00:00:00+0000\"\n        },\n        {\n            \"open\": 226.87,\n            \"high\": 229.49,\n            \"low\": 224.69,\n            \"close\": 229.31,\n            \"volume\": 54524400,\n            \"adj_high\": 229.49,\n            \"adj_low\": 224.69,\n            \"adj_close\": 229.31,\n            \"adj_open\": 226.87,\n            \"adj_volume\": 54575107,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-08-26T00:00:00+0000\"\n        },\n        {\n            \"open\": 226.48,\n            \"high\": 229.3,\n            \"low\": 226.23,\n            \"close\": 227.16,\n            \"volume\": 30965700,\n            \"adj_high\": 229.3,\n            \"adj_low\": 226.23,\n            \"adj_close\": 227.16,\n            \"adj_open\": 226.48,\n            \"adj_volume\": 30983133,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-08-25T00:00:00+0000\"\n        },\n        {\n            \"open\": 226.17,\n            \"high\": 229.09,\n            \"low\": 225.41,\n            \"close\": 227.76,\n            \"volume\": 42445300,\n            \"adj_high\": 229.09,\n            \"adj_low\": 225.41,\n            \"adj_close\": 227.76,\n            \"adj_open\": 226.17,\n            \"adj_volume\": 42477811,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-08-22T00:00:00+0000\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "Multiple Stocks - AAPL, MSFT",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/eod?access_key={{access_key}}&symbols=AAPL,MSFT",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "eod"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_key",
+                      "value": "{{access_key}}"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "AAPL,MSFT"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 29 Jan 2026 10:10:50 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "x-ratelimit-limit-second",
+                  "value": "5"
+                },
+                {
+                  "key": "x-ratelimit-reset-second",
+                  "value": "1769681451"
+                },
+                {
+                  "key": "x-ratelimit-remaining-second",
+                  "value": "4"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "x-request-time",
+                  "value": "0.193"
+                },
+                {
+                  "key": "x-request-time",
+                  "value": "0.247"
+                },
+                {
+                  "key": "x-apilayer-transaction-id",
+                  "value": "9300479a-efbb-4c1c-a42a-fd833378560b"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "*"
+                },
+                {
+                  "key": "x-rate-limit",
+                  "value": "0"
+                },
+                {
+                  "key": "x-rate-limit-remaining",
+                  "value": "0"
+                },
+                {
+                  "key": "x-quota-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-quota-remaining",
+                  "value": "95"
+                },
+                {
+                  "key": "x-increment-usage",
+                  "value": "2"
+                },
+                {
+                  "key": "cf-cache-status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "Nel",
+                  "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                },
+                {
+                  "key": "Report-To",
+                  "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=62aC6GyRQtGhIuyjV%2F%2Bbh8rmDtXuh2%2BgmqGR2JnK4dQNmpRmuEqi7zF7Hza4YOlSuknl0ecNZd3dd08XZOzsrGPqg7f8Mj0oR93Q519ODUQfeF4%3D\"}]}"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "Server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "CF-RAY",
+                  "value": "9c57f127e96c1dd5-IAD"
+                },
+                {
+                  "key": "alt-svc",
+                  "value": "h3=\":443\"; ma=86400"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"pagination\": {\n        \"limit\": 100,\n        \"offset\": 0,\n        \"count\": 100,\n        \"total\": 502\n    },\n    \"data\": [\n        {\n            \"open\": 483.21,\n            \"high\": 483.74,\n            \"low\": 478,\n            \"close\": 481.63,\n            \"volume\": 36875403,\n            \"adj_high\": 483.74,\n            \"adj_low\": 478,\n            \"adj_close\": 481.63,\n            \"adj_open\": 483.21,\n            \"adj_volume\": 36875403,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-28T00:00:00+0000\"\n        },\n        {\n            \"open\": 257.56,\n            \"high\": 258.855,\n            \"low\": 254.51,\n            \"close\": 256.44,\n            \"volume\": 33041915,\n            \"adj_high\": 258.855,\n            \"adj_low\": 254.51,\n            \"adj_close\": 256.44,\n            \"adj_open\": 257.65,\n            \"adj_volume\": 41287971,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-28T00:00:00+0000\"\n        },\n        {\n            \"open\": 259.14,\n            \"high\": 261.95,\n            \"low\": 258.21,\n            \"close\": 258.27,\n            \"volume\": 42113358,\n            \"adj_high\": 261.95,\n            \"adj_low\": 258.21,\n            \"adj_close\": 258.27,\n            \"adj_open\": 259.17,\n            \"adj_volume\": 48787855,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-27T00:00:00+0000\"\n        },\n        {\n            \"open\": 473.645,\n            \"high\": 482.87,\n            \"low\": 473.16,\n            \"close\": 480.58,\n            \"volume\": 29078464,\n            \"adj_high\": 482.87,\n            \"adj_low\": 473.16,\n            \"adj_close\": 480.58,\n            \"adj_open\": 473.7,\n            \"adj_volume\": 29088664,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-27T00:00:00+0000\"\n        },\n        {\n            \"open\": 465.305,\n            \"high\": 474.25,\n            \"low\": 462,\n            \"close\": 470.28,\n            \"volume\": 28716046,\n            \"adj_high\": 474.25,\n            \"adj_low\": 462,\n            \"adj_close\": 470.28,\n            \"adj_open\": 465.305,\n            \"adj_volume\": 29291235,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-26T00:00:00+0000\"\n        },\n        {\n            \"open\": 251.48,\n            \"high\": 256.56,\n            \"low\": 249.8,\n            \"close\": 255.41,\n            \"volume\": 55448748,\n            \"adj_high\": 256.56,\n            \"adj_low\": 249.8,\n            \"adj_close\": 255.41,\n            \"adj_open\": 251.48,\n            \"adj_volume\": 55969234,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-26T00:00:00+0000\"\n        },\n        {\n            \"open\": 451.86,\n            \"high\": 471.1,\n            \"low\": 450.6,\n            \"close\": 465.95,\n            \"volume\": 37533469,\n            \"adj_high\": 471.1,\n            \"adj_low\": 450.53,\n            \"adj_close\": 465.95,\n            \"adj_open\": 451.87,\n            \"adj_volume\": 38000159,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-23T00:00:00+0000\"\n        },\n        {\n            \"open\": 247.24,\n            \"high\": 249.41,\n            \"low\": 244.68,\n            \"close\": 248.04,\n            \"volume\": 40981809,\n            \"adj_high\": 249.41,\n            \"adj_low\": 244.68,\n            \"adj_close\": 248.04,\n            \"adj_open\": 247.32,\n            \"adj_volume\": 41688982,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-23T00:00:00+0000\"\n        },\n        {\n            \"open\": 448.04,\n            \"high\": 452.84,\n            \"low\": 444.735,\n            \"close\": 451.14,\n            \"volume\": 25018425,\n            \"adj_high\": 452.84,\n            \"adj_low\": 444.7,\n            \"adj_close\": 451.14,\n            \"adj_open\": 447.62,\n            \"adj_volume\": 25349378,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-22T00:00:00+0000\"\n        },\n        {\n            \"open\": 249.2,\n            \"high\": 251,\n            \"low\": 248.18,\n            \"close\": 248.35,\n            \"volume\": 36743336,\n            \"adj_high\": 251,\n            \"adj_low\": 248.15,\n            \"adj_close\": 248.35,\n            \"adj_open\": 249.2,\n            \"adj_volume\": 39708340,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-22T00:00:00+0000\"\n        },\n        {\n            \"open\": 452.35,\n            \"high\": 452.69,\n            \"low\": 438.685,\n            \"close\": 444.11,\n            \"volume\": 37424042,\n            \"adj_high\": 452.69,\n            \"adj_low\": 438.68,\n            \"adj_close\": 444.11,\n            \"adj_open\": 452.595,\n            \"adj_volume\": 37980510,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"1X MSFT\",\n            \"exchange_code\": null,\n            \"asset_type\": \"ETF\",\n            \"price_currency\": \"EUR\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-21T00:00:00+0000\"\n        },\n        {\n            \"open\": 248.71,\n            \"high\": 251.56,\n            \"low\": 245.19,\n            \"close\": 247.65,\n            \"volume\": 54151253,\n            \"adj_high\": 251.56,\n            \"adj_low\": 245.18,\n            \"adj_close\": 247.65,\n            \"adj_open\": 248.7,\n            \"adj_volume\": 54641725,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-21T00:00:00+0000\"\n        },\n        {\n            \"open\": 451.43,\n            \"high\": 456.8,\n            \"low\": 449.28,\n            \"close\": 454.52,\n            \"volume\": 25927390,\n            \"adj_high\": 456.8,\n            \"adj_low\": 449.28,\n            \"adj_close\": 454.52,\n            \"adj_open\": 451.215,\n            \"adj_volume\": 25973898,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"1X MSFT\",\n            \"exchange_code\": null,\n            \"asset_type\": \"ETF\",\n            \"price_currency\": \"EUR\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-20T00:00:00+0000\"\n        },\n        {\n            \"open\": 252.51,\n            \"high\": 254.79,\n            \"low\": 243.42,\n            \"close\": 246.7,\n            \"volume\": 77475520,\n            \"adj_high\": 254.79,\n            \"adj_low\": 243.42,\n            \"adj_close\": 246.7,\n            \"adj_open\": 252.73,\n            \"adj_volume\": 77280987,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-20T00:00:00+0000\"\n        },\n        {\n            \"open\": 457.83,\n            \"high\": 463.19,\n            \"low\": 456.48,\n            \"close\": 459.86,\n            \"volume\": 33795700,\n            \"adj_high\": 463.19,\n            \"adj_low\": 456.48,\n            \"adj_close\": 459.86,\n            \"adj_open\": 457.83,\n            \"adj_volume\": 34246650,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"1X MSFT\",\n            \"exchange_code\": null,\n            \"asset_type\": \"ETF\",\n            \"price_currency\": \"EUR\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-16T00:00:00+0000\"\n        },\n        {\n            \"open\": 257.9,\n            \"high\": 258.9,\n            \"low\": 254.93,\n            \"close\": 255.53,\n            \"volume\": 72018600,\n            \"adj_high\": 258.9,\n            \"adj_low\": 254.93,\n            \"adj_close\": 255.53,\n            \"adj_open\": 257.9,\n            \"adj_volume\": 72142773,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-16T00:00:00+0000\"\n        },\n        {\n            \"open\": 466.345,\n            \"high\": 464.12,\n            \"low\": 455.91,\n            \"close\": 456.66,\n            \"volume\": 23015084,\n            \"adj_high\": 464.25,\n            \"adj_low\": 455.9,\n            \"adj_close\": 456.66,\n            \"adj_open\": 464.12,\n            \"adj_volume\": 23225839,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"1X MSFT\",\n            \"exchange_code\": null,\n            \"asset_type\": \"ETF\",\n            \"price_currency\": \"EUR\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-15T00:00:00+0000\"\n        },\n        {\n            \"open\": 258.72,\n            \"high\": 261.03,\n            \"low\": 257.05,\n            \"close\": 258.21,\n            \"volume\": 34022938,\n            \"adj_high\": 261.04,\n            \"adj_low\": 257.05,\n            \"adj_close\": 258.21,\n            \"adj_open\": 260.65,\n            \"adj_volume\": 39388564,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-15T00:00:00+0000\"\n        },\n        {\n            \"open\": 466.345,\n            \"high\": 468.2,\n            \"low\": 457.1701,\n            \"close\": 459.38,\n            \"volume\": 28117173,\n            \"adj_high\": 468.2,\n            \"adj_low\": 457.17,\n            \"adj_close\": 459.38,\n            \"adj_open\": 466.46,\n            \"adj_volume\": 28184302,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"1X MSFT\",\n            \"exchange_code\": null,\n            \"asset_type\": \"ETF\",\n            \"price_currency\": \"EUR\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-14T00:00:00+0000\"\n        },\n        {\n            \"open\": 258.72,\n            \"high\": 261.81,\n            \"low\": 256.71,\n            \"close\": 259.96,\n            \"volume\": 39954522,\n            \"adj_high\": 261.82,\n            \"adj_low\": 256.71,\n            \"adj_close\": 259.96,\n            \"adj_open\": 259.49,\n            \"adj_volume\": 40019421,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-14T00:00:00+0000\"\n        },\n        {\n            \"open\": 474.675,\n            \"high\": 475.76,\n            \"low\": 465.95,\n            \"close\": 470.67,\n            \"volume\": 27617535,\n            \"adj_high\": 475.7799,\n            \"adj_low\": 465.95,\n            \"adj_close\": 470.67,\n            \"adj_open\": 474.675,\n            \"adj_volume\": 28545800,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"1X MSFT\",\n            \"exchange_code\": null,\n            \"asset_type\": \"ETF\",\n            \"price_currency\": \"EUR\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-13T00:00:00+0000\"\n        },\n        {\n            \"open\": 259.41,\n            \"high\": 261.81,\n            \"low\": 258.39,\n            \"close\": 261.05,\n            \"volume\": 41482227,\n            \"adj_high\": 261.81,\n            \"adj_low\": 258.39,\n            \"adj_close\": 261.05,\n            \"adj_open\": 258.72,\n            \"adj_volume\": 45730847,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-13T00:00:00+0000\"\n        },\n        {\n            \"open\": 476.67,\n            \"high\": 480.96,\n            \"low\": 475.6803,\n            \"close\": 477.18,\n            \"volume\": 21109977,\n            \"adj_high\": 480.99,\n            \"adj_low\": 475.6803,\n            \"adj_close\": 477.18,\n            \"adj_open\": 476.67,\n            \"adj_volume\": 23519895,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"1X MSFT\",\n            \"exchange_code\": null,\n            \"asset_type\": \"ETF\",\n            \"price_currency\": \"EUR\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-12T00:00:00+0000\"\n        },\n        {\n            \"open\": 259.41,\n            \"high\": 261.3,\n            \"low\": 256.8,\n            \"close\": 260.25,\n            \"volume\": 45056584,\n            \"adj_high\": 261.3,\n            \"adj_low\": 256.8,\n            \"adj_close\": 260.25,\n            \"adj_open\": 259.16,\n            \"adj_volume\": 45263767,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-12T00:00:00+0000\"\n        },\n        {\n            \"open\": 474.06,\n            \"high\": 479.82,\n            \"low\": 472.2,\n            \"close\": 479.28,\n            \"volume\": 18484000,\n            \"adj_high\": 479.82,\n            \"adj_low\": 472.2001,\n            \"adj_close\": 479.28,\n            \"adj_open\": 474.06,\n            \"adj_volume\": 18491036,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"1X MSFT\",\n            \"exchange_code\": null,\n            \"asset_type\": \"ETF\",\n            \"price_currency\": \"EUR\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-09T00:00:00+0000\"\n        },\n        {\n            \"open\": 259.075,\n            \"high\": 260.21,\n            \"low\": 256.2201,\n            \"close\": 259.37,\n            \"volume\": 39911019,\n            \"adj_high\": 260.21,\n            \"adj_low\": 256.22,\n            \"adj_close\": 259.37,\n            \"adj_open\": 259.075,\n            \"adj_volume\": 39996967,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-09T00:00:00+0000\"\n        },\n        {\n            \"open\": 480.578,\n            \"high\": 482.66,\n            \"low\": 475.86,\n            \"close\": 478.11,\n            \"volume\": 18098810,\n            \"adj_high\": 482.66,\n            \"adj_low\": 475.86,\n            \"adj_close\": 478.11,\n            \"adj_open\": 481.24,\n            \"adj_volume\": 18162616,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-08T00:00:00+0000\"\n        },\n        {\n            \"open\": 256.995,\n            \"high\": 259.28,\n            \"low\": 255.7,\n            \"close\": 259.04,\n            \"volume\": 50211734,\n            \"adj_high\": 259.29,\n            \"adj_low\": 255.7,\n            \"adj_close\": 259.04,\n            \"adj_open\": 257.02,\n            \"adj_volume\": 50419337,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-08T00:00:00+0000\"\n        },\n        {\n            \"open\": 479.76,\n            \"high\": 489.7,\n            \"low\": 477.95,\n            \"close\": 483.47,\n            \"volume\": 25547100,\n            \"adj_high\": 489.7,\n            \"adj_low\": 477.95,\n            \"adj_close\": 483.47,\n            \"adj_open\": 479.755,\n            \"adj_volume\": 25564196,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-07T00:00:00+0000\"\n        },\n        {\n            \"open\": 263.2,\n            \"high\": 263.68,\n            \"low\": 259.81,\n            \"close\": 260.33,\n            \"volume\": 48262000,\n            \"adj_high\": 263.68,\n            \"adj_low\": 259.81,\n            \"adj_close\": 260.33,\n            \"adj_open\": 263.2,\n            \"adj_volume\": 48309804,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-07T00:00:00+0000\"\n        },\n        {\n            \"open\": 473.8,\n            \"high\": 478.7367,\n            \"low\": 469.75,\n            \"close\": 478.51,\n            \"volume\": 23037665,\n            \"adj_high\": 478.7367,\n            \"adj_low\": 469.75,\n            \"adj_close\": 478.51,\n            \"adj_open\": 473.8,\n            \"adj_volume\": 23037665,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-06T00:00:00+0000\"\n        },\n        {\n            \"open\": 267,\n            \"high\": 267.55,\n            \"low\": 262.12,\n            \"close\": 262.36,\n            \"volume\": 52282100,\n            \"adj_high\": 267.55,\n            \"adj_low\": 262.12,\n            \"adj_close\": 262.36,\n            \"adj_open\": 267,\n            \"adj_volume\": 52352090,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-06T00:00:00+0000\"\n        },\n        {\n            \"open\": 473.95,\n            \"high\": 476.0529,\n            \"low\": 469.51,\n            \"close\": 472.85,\n            \"volume\": 24752522,\n            \"adj_high\": 476.07,\n            \"adj_low\": 469.5,\n            \"adj_close\": 472.85,\n            \"adj_open\": 474.055,\n            \"adj_volume\": 25250260,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"1X MSFT\",\n            \"exchange_code\": null,\n            \"asset_type\": \"ETF\",\n            \"price_currency\": \"EUR\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-05T00:00:00+0000\"\n        },\n        {\n            \"open\": 270.64,\n            \"high\": 271.51,\n            \"low\": 266.14,\n            \"close\": 267.26,\n            \"volume\": 45647200,\n            \"adj_high\": 271.51,\n            \"adj_low\": 266.14,\n            \"adj_close\": 267.26,\n            \"adj_open\": 270.64,\n            \"adj_volume\": 45647190,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-05T00:00:00+0000\"\n        },\n        {\n            \"open\": 484.385,\n            \"high\": 484.66,\n            \"low\": 470.16,\n            \"close\": 472.94,\n            \"volume\": 25467273,\n            \"adj_high\": 484.66,\n            \"adj_low\": 470.16,\n            \"adj_close\": 472.94,\n            \"adj_open\": 484.385,\n            \"adj_volume\": 25571567,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-02T00:00:00+0000\"\n        },\n        {\n            \"open\": 272.05,\n            \"high\": 277.8248,\n            \"low\": 269.02,\n            \"close\": 271.01,\n            \"volume\": 37746172,\n            \"adj_high\": 277.84,\n            \"adj_low\": 269,\n            \"adj_close\": 271.01,\n            \"adj_open\": 272.255,\n            \"adj_volume\": 37838054,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-01-02T00:00:00+0000\"\n        },\n        {\n            \"open\": 487.84,\n            \"high\": 488.14,\n            \"low\": 483.3,\n            \"close\": 483.62,\n            \"volume\": 15601600,\n            \"adj_high\": 488.14,\n            \"adj_low\": 483.3,\n            \"adj_close\": 483.62,\n            \"adj_open\": 487.84,\n            \"adj_volume\": 15601554,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-31T00:00:00+0000\"\n        },\n        {\n            \"open\": 273.06,\n            \"high\": 273.68,\n            \"low\": 271.75,\n            \"close\": 271.86,\n            \"volume\": 27293600,\n            \"adj_high\": 273.68,\n            \"adj_low\": 271.75,\n            \"adj_close\": 271.86,\n            \"adj_open\": 273.06,\n            \"adj_volume\": 27293639,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-31T00:00:00+0000\"\n        },\n        {\n            \"open\": 485.95,\n            \"high\": 489.67,\n            \"low\": 485.5,\n            \"close\": 487.48,\n            \"volume\": 12903172,\n            \"adj_high\": 489.68,\n            \"adj_low\": 485.5,\n            \"adj_close\": 487.48,\n            \"adj_open\": 485.93,\n            \"adj_volume\": 13944512,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-30T00:00:00+0000\"\n        },\n        {\n            \"open\": 272.835,\n            \"high\": 274.08,\n            \"low\": 272.28,\n            \"close\": 273.08,\n            \"volume\": 22090083,\n            \"adj_high\": 274.08,\n            \"adj_low\": 272.28,\n            \"adj_close\": 273.08,\n            \"adj_open\": 272.81,\n            \"adj_volume\": 22139617,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-30T00:00:00+0000\"\n        },\n        {\n            \"open\": 486.705,\n            \"high\": 488.35,\n            \"low\": 484.18,\n            \"close\": 487.1,\n            \"volume\": 10816574,\n            \"adj_high\": 488.35,\n            \"adj_low\": 484.18,\n            \"adj_close\": 487.1,\n            \"adj_open\": 484.855,\n            \"adj_volume\": 10893408,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-29T00:00:00+0000\"\n        },\n        {\n            \"open\": 274.23,\n            \"high\": 274.36,\n            \"low\": 272.35,\n            \"close\": 273.76,\n            \"volume\": 23399554,\n            \"adj_high\": 274.36,\n            \"adj_low\": 272.35,\n            \"adj_close\": 273.76,\n            \"adj_open\": 272.69,\n            \"adj_volume\": 23715213,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-29T00:00:00+0000\"\n        },\n        {\n            \"open\": 486.705,\n            \"high\": 488.12,\n            \"low\": 485.96,\n            \"close\": 487.71,\n            \"volume\": 8723088,\n            \"adj_high\": 488.12,\n            \"adj_low\": 485.96,\n            \"adj_close\": 487.71,\n            \"adj_open\": 486.705,\n            \"adj_volume\": 8842175,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-26T00:00:00+0000\"\n        },\n        {\n            \"open\": 274.23,\n            \"high\": 275.37,\n            \"low\": 272.87,\n            \"close\": 273.4,\n            \"volume\": 21004185,\n            \"adj_high\": 275.37,\n            \"adj_low\": 272.86,\n            \"adj_close\": 273.4,\n            \"adj_open\": 274.16,\n            \"adj_volume\": 21521802,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-26T00:00:00+0000\"\n        },\n        {\n            \"open\": 485.68,\n            \"high\": 489.16,\n            \"low\": 484.83,\n            \"close\": 488.02,\n            \"volume\": 5855900,\n            \"adj_high\": 489.1625,\n            \"adj_low\": 484.83,\n            \"adj_close\": 488.02,\n            \"adj_open\": 485.68,\n            \"adj_volume\": 5855880,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-24T00:00:00+0000\"\n        },\n        {\n            \"open\": 272.34,\n            \"high\": 275.43,\n            \"low\": 272.2,\n            \"close\": 273.81,\n            \"volume\": 17910600,\n            \"adj_high\": 275.43,\n            \"adj_low\": 272.195,\n            \"adj_close\": 273.81,\n            \"adj_open\": 272.34,\n            \"adj_volume\": 17910574,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-24T00:00:00+0000\"\n        },\n        {\n            \"open\": 484.88,\n            \"high\": 487.8299,\n            \"low\": 484.74,\n            \"close\": 486.85,\n            \"volume\": 14566748,\n            \"adj_high\": 487.83,\n            \"adj_low\": 484.74,\n            \"adj_close\": 486.85,\n            \"adj_open\": 484.98,\n            \"adj_volume\": 14683582,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-23T00:00:00+0000\"\n        },\n        {\n            \"open\": 270.84,\n            \"high\": 272.45,\n            \"low\": 269.56,\n            \"close\": 272.36,\n            \"volume\": 29357314,\n            \"adj_high\": 272.5,\n            \"adj_low\": 269.56,\n            \"adj_close\": 272.36,\n            \"adj_open\": 270.84,\n            \"adj_volume\": 29641999,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-23T00:00:00+0000\"\n        },\n        {\n            \"open\": 486.105,\n            \"high\": 488.73,\n            \"low\": 482.69,\n            \"close\": 484.92,\n            \"volume\": 15989056,\n            \"adj_high\": 488.73,\n            \"adj_low\": 482.69,\n            \"adj_close\": 484.92,\n            \"adj_open\": 486.12,\n            \"adj_volume\": 16963019,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-22T00:00:00+0000\"\n        },\n        {\n            \"open\": 272.86,\n            \"high\": 273.88,\n            \"low\": 270.505,\n            \"close\": 270.97,\n            \"volume\": 36445199,\n            \"adj_high\": 273.88,\n            \"adj_low\": 270.505,\n            \"adj_close\": 270.97,\n            \"adj_open\": 272.86,\n            \"adj_volume\": 36571827,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-22T00:00:00+0000\"\n        },\n        {\n            \"open\": 487.36,\n            \"high\": 487.85,\n            \"low\": 482.49,\n            \"close\": 485.92,\n            \"volume\": 58921425,\n            \"adj_high\": 487.85,\n            \"adj_low\": 482.49,\n            \"adj_close\": 485.92,\n            \"adj_open\": 487.36,\n            \"adj_volume\": 70836105,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-19T00:00:00+0000\"\n        },\n        {\n            \"open\": 272.145,\n            \"high\": 274.5763,\n            \"low\": 269.9,\n            \"close\": 273.67,\n            \"volume\": 111198501,\n            \"adj_high\": 274.6,\n            \"adj_low\": 269.9,\n            \"adj_close\": 273.67,\n            \"adj_open\": 272.145,\n            \"adj_volume\": 144632048,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-19T00:00:00+0000\"\n        },\n        {\n            \"open\": 478.19,\n            \"high\": 489.6,\n            \"low\": 477.89,\n            \"close\": 483.98,\n            \"volume\": 26736126,\n            \"adj_high\": 489.6,\n            \"adj_low\": 477.89,\n            \"adj_close\": 483.98,\n            \"adj_open\": 478.19,\n            \"adj_volume\": 28573545,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-18T00:00:00+0000\"\n        },\n        {\n            \"open\": 273.605,\n            \"high\": 273.62,\n            \"low\": 266.96,\n            \"close\": 272.19,\n            \"volume\": 51509672,\n            \"adj_high\": 273.63,\n            \"adj_low\": 266.95,\n            \"adj_close\": 272.19,\n            \"adj_open\": 273.605,\n            \"adj_volume\": 51630721,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-18T00:00:00+0000\"\n        },\n        {\n            \"open\": 476.905,\n            \"high\": 479.88,\n            \"low\": 475.22,\n            \"close\": 476.12,\n            \"volume\": 23237698,\n            \"adj_high\": 480,\n            \"adj_low\": 475,\n            \"adj_close\": 476.12,\n            \"adj_open\": 476.905,\n            \"adj_volume\": 24527176,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-17T00:00:00+0000\"\n        },\n        {\n            \"open\": 275.01,\n            \"high\": 276.16,\n            \"low\": 271.69,\n            \"close\": 271.84,\n            \"volume\": 49406521,\n            \"adj_high\": 276.16,\n            \"adj_low\": 271.64,\n            \"adj_close\": 271.84,\n            \"adj_open\": 275.01,\n            \"adj_volume\": 50138743,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-17T00:00:00+0000\"\n        },\n        {\n            \"open\": 471.905,\n            \"high\": 477.89,\n            \"low\": 470.88,\n            \"close\": 476.39,\n            \"volume\": 19938039,\n            \"adj_high\": 477.89,\n            \"adj_low\": 470.88,\n            \"adj_close\": 476.39,\n            \"adj_open\": 471.905,\n            \"adj_volume\": 20705560,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-16T00:00:00+0000\"\n        },\n        {\n            \"open\": 272.82,\n            \"high\": 275.5,\n            \"low\": 271.79,\n            \"close\": 274.61,\n            \"volume\": 37339504,\n            \"adj_high\": 275.5,\n            \"adj_low\": 271.79,\n            \"adj_close\": 274.61,\n            \"adj_open\": 272.82,\n            \"adj_volume\": 37648628,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-16T00:00:00+0000\"\n        },\n        {\n            \"open\": 480.1,\n            \"high\": 480.7205,\n            \"low\": 472.52,\n            \"close\": 474.82,\n            \"volume\": 23099397,\n            \"adj_high\": 480.7205,\n            \"adj_low\": 472.52,\n            \"adj_close\": 474.82,\n            \"adj_open\": 480.1,\n            \"adj_volume\": 23727694,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-15T00:00:00+0000\"\n        },\n        {\n            \"open\": 280.02,\n            \"high\": 280.05,\n            \"low\": 272.84,\n            \"close\": 274.11,\n            \"volume\": 49752479,\n            \"adj_high\": 280.15,\n            \"adj_low\": 272.84,\n            \"adj_close\": 274.11,\n            \"adj_open\": 280.15,\n            \"adj_volume\": 50409078,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-15T00:00:00+0000\"\n        },\n        {\n            \"open\": 479.82,\n            \"high\": 482.45,\n            \"low\": 476.36,\n            \"close\": 478.53,\n            \"volume\": 20743536,\n            \"adj_high\": 482.45,\n            \"adj_low\": 476.34,\n            \"adj_close\": 478.53,\n            \"adj_open\": 479.82,\n            \"adj_volume\": 21248102,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-12T00:00:00+0000\"\n        },\n        {\n            \"open\": 277.795,\n            \"high\": 279.22,\n            \"low\": 276.82,\n            \"close\": 278.28,\n            \"volume\": 38360082,\n            \"adj_high\": 279.22,\n            \"adj_low\": 276.82,\n            \"adj_close\": 278.28,\n            \"adj_open\": 277.9,\n            \"adj_volume\": 39532887,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-12T00:00:00+0000\"\n        },\n        {\n            \"open\": 476.56,\n            \"high\": 486.03,\n            \"low\": 475.86,\n            \"close\": 483.47,\n            \"volume\": 23182196,\n            \"adj_high\": 486.03,\n            \"adj_low\": 475.86,\n            \"adj_close\": 483.47,\n            \"adj_open\": 476.63,\n            \"adj_volume\": 24669180,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-11T00:00:00+0000\"\n        },\n        {\n            \"open\": 279.095,\n            \"high\": 279.58,\n            \"low\": 273.81,\n            \"close\": 278.03,\n            \"volume\": 30285187,\n            \"adj_high\": 279.59,\n            \"adj_low\": 273.81,\n            \"adj_close\": 278.03,\n            \"adj_open\": 279.095,\n            \"adj_volume\": 33247986,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-11T00:00:00+0000\"\n        },\n        {\n            \"open\": 484.03,\n            \"high\": 484.25,\n            \"low\": 475.08,\n            \"close\": 478.56,\n            \"volume\": 34464624,\n            \"adj_high\": 484.25,\n            \"adj_low\": 475.08,\n            \"adj_close\": 478.56,\n            \"adj_open\": 484.03,\n            \"adj_volume\": 35756229,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-10T00:00:00+0000\"\n        },\n        {\n            \"open\": 277.87,\n            \"high\": 279.75,\n            \"low\": 276.44,\n            \"close\": 278.78,\n            \"volume\": 31806647,\n            \"adj_high\": 279.75,\n            \"adj_low\": 276.44,\n            \"adj_close\": 278.78,\n            \"adj_open\": 277.75,\n            \"adj_volume\": 33038318,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-10T00:00:00+0000\"\n        },\n        {\n            \"open\": 489.34,\n            \"high\": 492.1,\n            \"low\": 488.5001,\n            \"close\": 492.02,\n            \"volume\": 14081114,\n            \"adj_high\": 492.12,\n            \"adj_low\": 488.5001,\n            \"adj_close\": 492.02,\n            \"adj_open\": 489.1,\n            \"adj_volume\": 14092776,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-09T00:00:00+0000\"\n        },\n        {\n            \"open\": 278.16,\n            \"high\": 280.03,\n            \"low\": 276.92,\n            \"close\": 277.18,\n            \"volume\": 31711233,\n            \"adj_high\": 280.03,\n            \"adj_low\": 276.92,\n            \"adj_close\": 277.18,\n            \"adj_open\": 278.16,\n            \"adj_volume\": 31753410,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-09T00:00:00+0000\"\n        },\n        {\n            \"open\": 484.885,\n            \"high\": 492.3,\n            \"low\": 484.38,\n            \"close\": 491.02,\n            \"volume\": 20801963,\n            \"adj_high\": 492.3,\n            \"adj_low\": 484.38,\n            \"adj_close\": 491.02,\n            \"adj_open\": 484.885,\n            \"adj_volume\": 20668450,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-08T00:00:00+0000\"\n        },\n        {\n            \"open\": 278.1685,\n            \"high\": 279.6693,\n            \"low\": 276.15,\n            \"close\": 277.89,\n            \"volume\": 35028165,\n            \"adj_high\": 279.6693,\n            \"adj_low\": 276.15,\n            \"adj_close\": 277.89,\n            \"adj_open\": 278.13,\n            \"adj_volume\": 36406317,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-08T00:00:00+0000\"\n        },\n        {\n            \"open\": 482.5,\n            \"high\": 483.4,\n            \"low\": 478.8801,\n            \"close\": 483.16,\n            \"volume\": 22109742,\n            \"adj_high\": 483.4,\n            \"adj_low\": 478.8801,\n            \"adj_close\": 483.16,\n            \"adj_open\": 482.515,\n            \"adj_volume\": 22608710,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-05T00:00:00+0000\"\n        },\n        {\n            \"open\": 280.54,\n            \"high\": 281.14,\n            \"low\": 278.05,\n            \"close\": 278.78,\n            \"volume\": 45584026,\n            \"adj_high\": 281.14,\n            \"adj_low\": 278.05,\n            \"adj_close\": 278.78,\n            \"adj_open\": 280.54,\n            \"adj_volume\": 47265845,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-05T00:00:00+0000\"\n        },\n        {\n            \"open\": 479.52,\n            \"high\": 481.322,\n            \"low\": 476.49,\n            \"close\": 480.84,\n            \"volume\": 21899020,\n            \"adj_high\": 481.322,\n            \"adj_low\": 476.49,\n            \"adj_close\": 480.84,\n            \"adj_open\": 479.76,\n            \"adj_volume\": 22318155,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-04T00:00:00+0000\"\n        },\n        {\n            \"open\": 284.095,\n            \"high\": 284.73,\n            \"low\": 278.59,\n            \"close\": 280.7,\n            \"volume\": 42680947,\n            \"adj_high\": 284.73,\n            \"adj_low\": 278.59,\n            \"adj_close\": 280.7,\n            \"adj_open\": 284.095,\n            \"adj_volume\": 43989056,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-04T00:00:00+0000\"\n        },\n        {\n            \"open\": 476.29,\n            \"high\": 484.24,\n            \"low\": 475.2,\n            \"close\": 477.73,\n            \"volume\": 33458975,\n            \"adj_high\": 484.24,\n            \"adj_low\": 475.2,\n            \"adj_close\": 477.73,\n            \"adj_open\": 476.32,\n            \"adj_volume\": 34615102,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-03T00:00:00+0000\"\n        },\n        {\n            \"open\": 286.2,\n            \"high\": 288.61,\n            \"low\": 283.54,\n            \"close\": 284.15,\n            \"volume\": 38438153,\n            \"adj_high\": 288.62,\n            \"adj_low\": 283.3,\n            \"adj_close\": 284.15,\n            \"adj_open\": 286.2,\n            \"adj_volume\": 43538687,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-03T00:00:00+0000\"\n        },\n        {\n            \"open\": 486.72,\n            \"high\": 493.5,\n            \"low\": 486.32,\n            \"close\": 490,\n            \"volume\": 19549000,\n            \"adj_high\": 493.4999,\n            \"adj_low\": 486.32,\n            \"adj_close\": 490,\n            \"adj_open\": 486.715,\n            \"adj_volume\": 19562722,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-02T00:00:00+0000\"\n        },\n        {\n            \"open\": 283,\n            \"high\": 287.4,\n            \"low\": 282.63,\n            \"close\": 286.19,\n            \"volume\": 53615500,\n            \"adj_high\": 287.4,\n            \"adj_low\": 282.6301,\n            \"adj_close\": 286.19,\n            \"adj_open\": 283,\n            \"adj_volume\": 53669532,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-02T00:00:00+0000\"\n        },\n        {\n            \"open\": 488.44,\n            \"high\": 489.86,\n            \"low\": 484.65,\n            \"close\": 486.74,\n            \"volume\": 23944100,\n            \"adj_high\": 489.8599,\n            \"adj_low\": 484.6475,\n            \"adj_close\": 486.74,\n            \"adj_open\": 488.435,\n            \"adj_volume\": 23963993,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-01T00:00:00+0000\"\n        },\n        {\n            \"open\": 278.01,\n            \"high\": 283.42,\n            \"low\": 276.14,\n            \"close\": 283.1,\n            \"volume\": 46528400,\n            \"adj_high\": 283.42,\n            \"adj_low\": 276.14,\n            \"adj_close\": 283.1,\n            \"adj_open\": 278.01,\n            \"adj_volume\": 46587722,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-12-01T00:00:00+0000\"\n        },\n        {\n            \"open\": 487.595,\n            \"high\": 492.63,\n            \"low\": 486.65,\n            \"close\": 492.01,\n            \"volume\": 10514063,\n            \"adj_high\": 492.63,\n            \"adj_low\": 486.65,\n            \"adj_close\": 492.01,\n            \"adj_open\": 487.595,\n            \"adj_volume\": 14386730,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-28T00:00:00+0000\"\n        },\n        {\n            \"open\": 277.26,\n            \"high\": 279,\n            \"low\": 275.9865,\n            \"close\": 278.85,\n            \"volume\": 19033072,\n            \"adj_high\": 279,\n            \"adj_low\": 275.9865,\n            \"adj_close\": 278.85,\n            \"adj_open\": 277.26,\n            \"adj_volume\": 20135620,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-28T00:00:00+0000\"\n        },\n        {\n            \"open\": 486.31,\n            \"high\": 488.31,\n            \"low\": 481.2,\n            \"close\": 485.5,\n            \"volume\": 25709100,\n            \"adj_high\": 488.31,\n            \"adj_low\": 481.2,\n            \"adj_close\": 485.5,\n            \"adj_open\": 486.31,\n            \"adj_volume\": 25709079,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-26T00:00:00+0000\"\n        },\n        {\n            \"open\": 276.96,\n            \"high\": 279.53,\n            \"low\": 276.63,\n            \"close\": 277.55,\n            \"volume\": 33431400,\n            \"adj_high\": 279.53,\n            \"adj_low\": 276.63,\n            \"adj_close\": 277.55,\n            \"adj_open\": 276.96,\n            \"adj_volume\": 33431423,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-26T00:00:00+0000\"\n        },\n        {\n            \"open\": 474.07,\n            \"high\": 479.15,\n            \"low\": 464.89,\n            \"close\": 476.99,\n            \"volume\": 27992800,\n            \"adj_high\": 479.15,\n            \"adj_low\": 464.89,\n            \"adj_close\": 476.99,\n            \"adj_open\": 474.07,\n            \"adj_volume\": 28019793,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-25T00:00:00+0000\"\n        },\n        {\n            \"open\": 275.27,\n            \"high\": 280.38,\n            \"low\": 275.25,\n            \"close\": 276.97,\n            \"volume\": 46888700,\n            \"adj_high\": 280.38,\n            \"adj_low\": 275.25,\n            \"adj_close\": 276.97,\n            \"adj_open\": 275.27,\n            \"adj_volume\": 46914220,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-25T00:00:00+0000\"\n        },\n        {\n            \"open\": 475,\n            \"high\": 476.9,\n            \"low\": 468.02,\n            \"close\": 474,\n            \"volume\": 32598344,\n            \"adj_high\": 476.9,\n            \"adj_low\": 468.02,\n            \"adj_close\": 474,\n            \"adj_open\": 475,\n            \"adj_volume\": 34421046,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-24T00:00:00+0000\"\n        },\n        {\n            \"open\": 270.9,\n            \"high\": 276.98,\n            \"low\": 270.9,\n            \"close\": 275.92,\n            \"volume\": 61882174,\n            \"adj_high\": 277,\n            \"adj_low\": 270.9,\n            \"adj_close\": 275.92,\n            \"adj_open\": 270.9,\n            \"adj_volume\": 65585796,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-24T00:00:00+0000\"\n        },\n        {\n            \"open\": 478.39,\n            \"high\": 478.92,\n            \"low\": 468.27,\n            \"close\": 472.12,\n            \"volume\": 31397484,\n            \"adj_high\": 478.92,\n            \"adj_low\": 468.27,\n            \"adj_close\": 472.12,\n            \"adj_open\": 478.5,\n            \"adj_volume\": 31769248,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-21T00:00:00+0000\"\n        },\n        {\n            \"open\": 265.88,\n            \"high\": 273.315,\n            \"low\": 265.82,\n            \"close\": 271.49,\n            \"volume\": 55524271,\n            \"adj_high\": 273.33,\n            \"adj_low\": 265.67,\n            \"adj_close\": 271.49,\n            \"adj_open\": 265.95,\n            \"adj_volume\": 59030832,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-21T00:00:00+0000\"\n        },\n        {\n            \"open\": 492.71,\n            \"high\": 493.57,\n            \"low\": 476.06,\n            \"close\": 478.43,\n            \"volume\": 25526443,\n            \"adj_high\": 493.57,\n            \"adj_low\": 475.5,\n            \"adj_close\": 478.43,\n            \"adj_open\": 492.71,\n            \"adj_volume\": 26802542,\n            \"split_factor\": 1,\n            \"dividend\": 0.91,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-20T00:00:00+0000\"\n        },\n        {\n            \"open\": 270.81,\n            \"high\": 275.43,\n            \"low\": 265.92,\n            \"close\": 266.25,\n            \"volume\": 43720835,\n            \"adj_high\": 275.43,\n            \"adj_low\": 265.92,\n            \"adj_close\": 266.25,\n            \"adj_open\": 270.83,\n            \"adj_volume\": 45823568,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-20T00:00:00+0000\"\n        },\n        {\n            \"open\": 490.1,\n            \"high\": 495.1872,\n            \"low\": 482.83,\n            \"close\": 487.12,\n            \"volume\": 22340405,\n            \"adj_high\": 495.1872,\n            \"adj_low\": 482.83,\n            \"adj_close\": 487.12,\n            \"adj_open\": 490.1,\n            \"adj_volume\": 23245314,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-19T00:00:00+0000\"\n        },\n        {\n            \"open\": 265.525,\n            \"high\": 272.21,\n            \"low\": 265.5,\n            \"close\": 268.56,\n            \"volume\": 35871303,\n            \"adj_high\": 272.21,\n            \"adj_low\": 265.5,\n            \"adj_close\": 268.56,\n            \"adj_open\": 265.525,\n            \"adj_volume\": 40424492,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-19T00:00:00+0000\"\n        },\n        {\n            \"open\": 269.915,\n            \"high\": 270.705,\n            \"low\": 265.32,\n            \"close\": 267.44,\n            \"volume\": 43692217,\n            \"adj_high\": 270.71,\n            \"adj_low\": 265.32,\n            \"adj_close\": 267.44,\n            \"adj_open\": 269.99,\n            \"adj_volume\": 45677278,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-18T00:00:00+0000\"\n        },\n        {\n            \"open\": 495.09,\n            \"high\": 502.98,\n            \"low\": 486.78,\n            \"close\": 493.79,\n            \"volume\": 32728726,\n            \"adj_high\": 502.98,\n            \"adj_low\": 486.78,\n            \"adj_close\": 493.79,\n            \"adj_open\": 495.365,\n            \"adj_volume\": 33815114,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-18T00:00:00+0000\"\n        },\n        {\n            \"open\": 268.72,\n            \"high\": 270.49,\n            \"low\": 265.73,\n            \"close\": 267.46,\n            \"volume\": 44918325,\n            \"adj_high\": 270.49,\n            \"adj_low\": 265.73,\n            \"adj_close\": 267.46,\n            \"adj_open\": 268.815,\n            \"adj_volume\": 45018260,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-17T00:00:00+0000\"\n        },\n        {\n            \"open\": 508.445,\n            \"high\": 512.12,\n            \"low\": 504.92,\n            \"close\": 507.49,\n            \"volume\": 19053569,\n            \"adj_high\": 512.12,\n            \"adj_low\": 504.91,\n            \"adj_close\": 507.49,\n            \"adj_open\": 508.45,\n            \"adj_volume\": 19092752,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-17T00:00:00+0000\"\n        },\n        {\n            \"open\": 271.05,\n            \"high\": 275.96,\n            \"low\": 269.6,\n            \"close\": 272.41,\n            \"volume\": 47399300,\n            \"adj_high\": 275.96,\n            \"adj_low\": 269.6,\n            \"adj_close\": 272.41,\n            \"adj_open\": 271.05,\n            \"adj_volume\": 47431331,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Apple Inc\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-14T00:00:00+0000\"\n        },\n        {\n            \"open\": 498.23,\n            \"high\": 511.6,\n            \"low\": 497.44,\n            \"close\": 510.18,\n            \"volume\": 28491700,\n            \"adj_high\": 511.6,\n            \"adj_low\": 497.44,\n            \"adj_close\": 510.18,\n            \"adj_open\": 498.23,\n            \"adj_volume\": 28505746,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"name\": \"Microsoft Corporation\",\n            \"exchange_code\": \"NASDAQ\",\n            \"asset_type\": \"Stock\",\n            \"price_currency\": \"USD\",\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2025-11-14T00:00:00+0000\"\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ],
+      "description": "This request retrieves End-of-Day (EOD) market data for multiple stocks in a single API call.\n\nIt is used to compare historical performance between symbols such as AAPL and MSFT.\n\nThe response includes daily pricing data, including open, high, low, close, and volume.\n\nThis example demonstrates how developers can analyze trends and compare stock performance over a selected time period."
+    },
+    {
+      "name": "Data Availability Filtering",
+      "item": [
+        {
+          "name": "Check Symbols with EOD Data",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tickers?access_key={{access_key}}&symbols=AAPL,MSFT,TSLA,BTCUSD",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickers"
+              ],
+              "query": [
+                {
+                  "key": "access_key",
+                  "value": "{{access_key}}"
+                },
+                {
+                  "key": "symbols",
+                  "value": "AAPL,MSFT,TSLA,BTCUSD"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response – Data Availability",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/tickers?access_key={{access_key}}&symbols=AAPL,MSFT,TSLA,BTCUSD",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "tickers"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_key",
+                      "value": "{{access_key}}"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "AAPL,MSFT,TSLA,BTCUSD"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Mar 2026 07:39:05 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "x-ratelimit-limit-second",
+                  "value": "5"
+                },
+                {
+                  "key": "x-ratelimit-reset-second",
+                  "value": "1773992346"
+                },
+                {
+                  "key": "x-ratelimit-remaining-second",
+                  "value": "4"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "x-request-time",
+                  "value": "0.108"
+                },
+                {
+                  "key": "x-request-time",
+                  "value": "0.157"
+                },
+                {
+                  "key": "x-apilayer-transaction-id",
+                  "value": "720e3f66-66d3-4d38-a9bb-d5d831b780a0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "*"
+                },
+                {
+                  "key": "x-rate-limit",
+                  "value": "0"
+                },
+                {
+                  "key": "x-rate-limit-remaining",
+                  "value": "0"
+                },
+                {
+                  "key": "x-quota-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-quota-remaining",
+                  "value": "90"
+                },
+                {
+                  "key": "x-increment-usage",
+                  "value": "4"
+                },
+                {
+                  "key": "cf-cache-status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "Nel",
+                  "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                },
+                {
+                  "key": "Report-To",
+                  "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=apUq7yGtZqmiKRpFmQH%2BBZxZVAfPRhfQNPaymLrwKPA2MUPRz%2BTYTcUnSW6lEiRpidSjGo%2BaNe736BLk36dkTLRuUMPb8sEzAR6EMm41k5bQBrQ%3D\"}]}"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "Server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "CF-RAY",
+                  "value": "9df30f9faa2fe6f2-IAD"
+                },
+                {
+                  "key": "alt-svc",
+                  "value": "h3=\":443\"; ma=86400"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"pagination\": {\n        \"limit\": 100,\n        \"offset\": 0,\n        \"count\": 3,\n        \"total\": 3\n    },\n    \"data\": [\n        {\n            \"name\": \"Apple Inc\",\n            \"symbol\": \"AAPL\",\n            \"has_intraday\": false,\n            \"has_eod\": true,\n            \"country\": null,\n            \"stock_exchange\": {\n                \"name\": \"NASDAQ - ALL MARKETS\",\n                \"acronym\": \"NASDAQ\",\n                \"mic\": \"XNAS\",\n                \"country\": null,\n                \"country_code\": \"US\",\n                \"city\": \"NEW YORK\",\n                \"website\": \"www.nasdaq.com\"\n            }\n        },\n        {\n            \"name\": \"Microsoft Corporation\",\n            \"symbol\": \"MSFT\",\n            \"has_intraday\": false,\n            \"has_eod\": true,\n            \"country\": null,\n            \"stock_exchange\": {\n                \"name\": \"NASDAQ - ALL MARKETS\",\n                \"acronym\": \"NASDAQ\",\n                \"mic\": \"XNAS\",\n                \"country\": null,\n                \"country_code\": \"US\",\n                \"city\": \"NEW YORK\",\n                \"website\": \"www.nasdaq.com\"\n            }\n        },\n        {\n            \"name\": \"Tesla Inc\",\n            \"symbol\": \"TSLA\",\n            \"has_intraday\": false,\n            \"has_eod\": true,\n            \"country\": null,\n            \"stock_exchange\": {\n                \"name\": \"NASDAQ - ALL MARKETS\",\n                \"acronym\": \"NASDAQ\",\n                \"mic\": \"XNAS\",\n                \"country\": null,\n                \"country_code\": \"US\",\n                \"city\": \"NEW YORK\",\n                \"website\": \"www.nasdaq.com\"\n            }\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Ticker Metadata",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tickers?access_key={{access_key}}&symbols=MSFT",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickers"
+              ],
+              "query": [
+                {
+                  "key": "access_key",
+                  "value": "{{access_key}}"
+                },
+                {
+                  "key": "symbols",
+                  "value": "MSFT"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response – Ticker Metadata",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/tickers?access_key={{access_key}}&symbols=MSFT",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "tickers"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_key",
+                      "value": "{{access_key}}"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "MSFT"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Mar 2026 07:40:05 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "x-ratelimit-limit-second",
+                  "value": "5"
+                },
+                {
+                  "key": "x-ratelimit-reset-second",
+                  "value": "1773992406"
+                },
+                {
+                  "key": "x-ratelimit-remaining-second",
+                  "value": "4"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "x-request-time",
+                  "value": "0.123"
+                },
+                {
+                  "key": "x-request-time",
+                  "value": "0.161"
+                },
+                {
+                  "key": "x-apilayer-transaction-id",
+                  "value": "b60687e2-c8d9-4b46-9e08-05f37a9be505"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "*"
+                },
+                {
+                  "key": "x-rate-limit",
+                  "value": "0"
+                },
+                {
+                  "key": "x-rate-limit-remaining",
+                  "value": "0"
+                },
+                {
+                  "key": "x-quota-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-quota-remaining",
+                  "value": "86"
+                },
+                {
+                  "key": "x-increment-usage",
+                  "value": "1"
+                },
+                {
+                  "key": "cf-cache-status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "Nel",
+                  "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                },
+                {
+                  "key": "Report-To",
+                  "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=McVMqvovBzdUoSeCDRw6JSPJX1BVD%2FUuMUPcW85VuAuy%2BVtXefRCdqtJmAObGFuoPgFA%2FYL7QgooWDhlWTIbErb9x%2BVgRr0sHUnOg9ZXoHrib78%3D\"}]}"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "Server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "CF-RAY",
+                  "value": "9df31115b9fa3b38-IAD"
+                },
+                {
+                  "key": "alt-svc",
+                  "value": "h3=\":443\"; ma=86400"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"pagination\": {\n        \"limit\": 100,\n        \"offset\": 0,\n        \"count\": 1,\n        \"total\": 1\n    },\n    \"data\": [\n        {\n            \"name\": \"Microsoft Corporation\",\n            \"symbol\": \"MSFT\",\n            \"has_intraday\": false,\n            \"has_eod\": true,\n            \"country\": null,\n            \"stock_exchange\": {\n                \"name\": \"NASDAQ - ALL MARKETS\",\n                \"acronym\": \"NASDAQ\",\n                \"mic\": \"XNAS\",\n                \"country\": null,\n                \"country_code\": \"US\",\n                \"city\": \"NEW YORK\",\n                \"website\": \"www.nasdaq.com\"\n            }\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ],
+      "description": "This request retrieves ticker metadata to determine whether specific symbols support End-of-Day (EOD) or intraday data.\n\nIt is useful for filtering out symbols that do not provide the required data before making additional API calls. This helps optimize API usage and ensures only valid symbols are used in applications."
+    },
+    {
+      "name": "Watchlist Monitoring",
+      "item": [
+        {
+          "name": "Fetch Watchlist Prices",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/eod?access_key={{access_key}}&symbols=AAPL,MSFT,TSLA&limit=3",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "eod"
+              ],
+              "query": [
+                {
+                  "key": "access_key",
+                  "value": "{{access_key}}"
+                },
+                {
+                  "key": "symbols",
+                  "value": "AAPL,MSFT,TSLA"
+                },
+                {
+                  "key": "limit",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response – Watchlist Data",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/eod?access_key={{access_key}}&symbols=AAPL,MSFT,TSLA&limit=3",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "eod"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_key",
+                      "value": "{{access_key}}"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "AAPL,MSFT,TSLA"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Mar 2026 07:40:36 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "x-ratelimit-limit-second",
+                  "value": "5"
+                },
+                {
+                  "key": "x-ratelimit-reset-second",
+                  "value": "1773992436"
+                },
+                {
+                  "key": "x-ratelimit-remaining-second",
+                  "value": "4"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "x-request-time",
+                  "value": "0.182"
+                },
+                {
+                  "key": "x-request-time",
+                  "value": "0.227"
+                },
+                {
+                  "key": "x-apilayer-transaction-id",
+                  "value": "2256df1f-76df-4a1a-8e47-0f6188d77b28"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "*"
+                },
+                {
+                  "key": "x-rate-limit",
+                  "value": "0"
+                },
+                {
+                  "key": "x-rate-limit-remaining",
+                  "value": "0"
+                },
+                {
+                  "key": "x-quota-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-quota-remaining",
+                  "value": "85"
+                },
+                {
+                  "key": "x-increment-usage",
+                  "value": "3"
+                },
+                {
+                  "key": "cf-cache-status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "Nel",
+                  "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                },
+                {
+                  "key": "Report-To",
+                  "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=7s%2FRl2w4kW8QMfhQQAE5yVT1qw1OhTTRivj7pGCBvmZFF4qPYb3MhKWE050iNcQcN9Y7uCYJvE%2Bi4CgehlJBjuYJpRNfXk6%2FRPM%2FoL95gr%2Bg7rQ%3D\"}]}"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "Server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "CF-RAY",
+                  "value": "9df311d4397de93c-IAD"
+                },
+                {
+                  "key": "alt-svc",
+                  "value": "h3=\":443\"; ma=86400"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"pagination\": {\n        \"limit\": 3,\n        \"offset\": 0,\n        \"count\": 3,\n        \"total\": 3\n    },\n    \"data\": [\n        {\n            \"open\": 390.1,\n            \"high\": 392.49,\n            \"low\": 387.06,\n            \"close\": 389.02,\n            \"volume\": 25138772,\n            \"adj_high\": 392.49,\n            \"adj_low\": 387.06,\n            \"adj_close\": 389.02,\n            \"adj_open\": 390.1,\n            \"adj_volume\": 25138772,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"symbol\": \"MSFT\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-03-19T00:00:00+0000\"\n        },\n        {\n            \"open\": 387.27,\n            \"high\": 387.27,\n            \"low\": 378.73,\n            \"close\": 380.3,\n            \"volume\": 67078259,\n            \"adj_high\": 387.27,\n            \"adj_low\": 378.73,\n            \"adj_close\": 380.3,\n            \"adj_open\": 387.27,\n            \"adj_volume\": 67078259,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"symbol\": \"TSLA\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-03-19T00:00:00+0000\"\n        },\n        {\n            \"open\": 249.4,\n            \"high\": 251.83,\n            \"low\": 247.3,\n            \"close\": 248.8416,\n            \"volume\": 32382088,\n            \"adj_high\": 251.83,\n            \"adj_low\": 247.3,\n            \"adj_close\": 248.8416,\n            \"adj_open\": 249.4,\n            \"adj_volume\": 34864082,\n            \"split_factor\": 1,\n            \"dividend\": 0,\n            \"symbol\": \"AAPL\",\n            \"exchange\": \"XNAS\",\n            \"date\": \"2026-03-19T00:00:00+0000\"\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ],
+      "description": "This request retrieves the latest End-of-Day (EOD) data for a group of stocks.\n\nIt is commonly used in watchlists or portfolio tracking systems to monitor daily price movements, volume, and trends. The response can be stored or processed to trigger alerts and generate insights."
+    },
+    {
+      "name": "Exchange Metadata",
+      "item": [
+        {
+          "name": "Get Exchange Info for AAPL",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tickers?access_key={{access_key}}&symbols=AAPL",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickers"
+              ],
+              "query": [
+                {
+                  "key": "access_key",
+                  "value": "{{access_key}}",
+                  "type": "text"
+                },
+                {
+                  "key": "symbols",
+                  "value": "AAPL",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response – Exchange Metadata",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/tickers?access_key={{access_key}}&symbols=AAPL",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "tickers"
+                  ],
+                  "query": [
+                    {
+                      "key": "access_key",
+                      "value": "{{access_key}}"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "AAPL"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Mar 2026 07:41:17 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "x-ratelimit-limit-second",
+                  "value": "5"
+                },
+                {
+                  "key": "x-ratelimit-reset-second",
+                  "value": "1773992478"
+                },
+                {
+                  "key": "x-ratelimit-remaining-second",
+                  "value": "4"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "x-request-time",
+                  "value": "0.084"
+                },
+                {
+                  "key": "x-request-time",
+                  "value": "0.133"
+                },
+                {
+                  "key": "x-apilayer-transaction-id",
+                  "value": "61c24d81-d5dc-40c3-a249-8a6371cb73e4"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "*"
+                },
+                {
+                  "key": "x-rate-limit",
+                  "value": "0"
+                },
+                {
+                  "key": "x-rate-limit-remaining",
+                  "value": "0"
+                },
+                {
+                  "key": "x-quota-limit",
+                  "value": "100"
+                },
+                {
+                  "key": "x-quota-remaining",
+                  "value": "82"
+                },
+                {
+                  "key": "x-increment-usage",
+                  "value": "1"
+                },
+                {
+                  "key": "cf-cache-status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "Nel",
+                  "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                },
+                {
+                  "key": "Report-To",
+                  "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=PpDbF%2BS1xmwUYQ6woUG6pU%2F8GQ63XqzHyU7j%2BBdVK8%2BezcrQ5lr6xRSqZ7hn4HRKOwGYF1OiEnBeFu%2FqIk%2BCNcLRKjHKepoWZTYY%2B8Othii6Mhc%3D\"}]}"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "Server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "CF-RAY",
+                  "value": "9df312d6bbe2356c-IAD"
+                },
+                {
+                  "key": "alt-svc",
+                  "value": "h3=\":443\"; ma=86400"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"pagination\": {\n        \"limit\": 100,\n        \"offset\": 0,\n        \"count\": 1,\n        \"total\": 1\n    },\n    \"data\": [\n        {\n            \"name\": \"Apple Inc\",\n            \"symbol\": \"AAPL\",\n            \"has_intraday\": false,\n            \"has_eod\": true,\n            \"country\": null,\n            \"stock_exchange\": {\n                \"name\": \"NASDAQ - ALL MARKETS\",\n                \"acronym\": \"NASDAQ\",\n                \"mic\": \"XNAS\",\n                \"country\": null,\n                \"country_code\": \"US\",\n                \"city\": \"NEW YORK\",\n                \"website\": \"www.nasdaq.com\"\n            }\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ],
+      "description": "This request retrieves stock exchange metadata for a given symbol.\n\nIt provides details such as exchange name, MIC, country code, and location, which can be used to enrich financial applications with market context."
+    }
+  ]
+}

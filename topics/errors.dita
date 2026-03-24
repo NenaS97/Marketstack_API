@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="errors">
+
+<title>Errors</title>
+
+<refbody>
+<section>
+<p>The Marketstack API uses standard HTTP status codes to indicate whether a request was successful or failed. When an error occurs, the API returns a JSON response containing details that help identify and resolve the issue.</p>
+<p>Understanding these responses allows developers to troubleshoot problems efficiently and adjust their requests accordingly.</p>
+</section>
+
+<section>
+<title>HTTP Status Codes</title>
+
+<p>The following table describes common HTTP status codes returned by the Marketstack API and their meanings.</p>
+
+<table frame="all">
+<tgroup cols="2" colsep="1" rowsep="1">
+<colspec colname="c1" colwidth="1*"/>
+<colspec colname="c2" colwidth="1*"/>
+
+<thead>
+<row>
+<entry>Code</entry>
+<entry>Description</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+<entry>200 OK</entry>
+<entry>The request was processed successfully and valid data was returned.</entry>
+</row>
+
+<row>
+<entry>400 Bad Request</entry>
+<entry>The request is malformed or contains invalid or missing parameters. Review query parameters and formatting.</entry>
+</row>
+
+<row>
+<entry>401 Unauthorized</entry>
+<entry>The access key is missing, invalid, or not properly included in the request.</entry>
+</row>
+
+<row>
+<entry>403 Forbidden</entry>
+<entry>The request is valid but not permitted under the current subscription plan or account permissions.</entry>
+</row>
+
+<row>
+<entry>404 Not Found</entry>
+<entry>The requested endpoint or resource could not be found.</entry>
+</row>
+
+<row>
+<entry>429 Too Many Requests</entry>
+<entry>The allowed request limit for the current subscription period has been exceeded.</entry>
+</row>
+
+<row>
+<entry>500 Internal Server Error</entry>
+<entry>500 Internal Server Error</entry>
+</row>
+
+</tbody>
+</tgroup>
+</table>
+</section>
+
+<section>
+<title>Error Response Format</title>
+
+<p>When a request fails, the API returns an error response in JSON format that provides additional details about the problem. This response typically includes:</p>
+
+<ul>
+<li>An error message describing what went wrong</li>
+<li>An error code that categorizes the type of failure</li>
+</ul>
+
+<p>These details help determine whether the issue is related to authentication, request structure, usage limits, or server-side conditions.</p>
+</section>
+
+<section>
+<title>Common Error Scenarios</title>
+
+<p>The following are common situations in which errors may occur when working with the Marketstack API:</p>
+
+<ul>
+<li>An access key is missing, incorrect, or expired</li>
+<li>The monthly request limit for the free plan has been exceeded</li>
+<li>Query parameters are misspelled, unsupported, or incorrectly formatted</li>
+<li>Data is requested that is not available under the current subscription tier</li>
+<li>An invalid symbol or exchange code is provided</li>
+</ul>
+
+<p>Recognizing these scenarios can help reduce failed requests and improve integration reliability.</p>
+</section>
+
+<section>
+<title>Troubleshooting Tips</title>
+
+<p>If an error occurs, consider the following steps before retrying the request:</p>
+
+<ul>
+<li>Confirm that the access key is valid and included correctly in the request</li>
+<li>Double-check parameter names, values, and formatting</li>
+<li>Ensure the request does not exceed plan limitations such as monthly request quotas</li>
+<li>Review the HTTP status code and error message returned in the response</li>
+<li>Retry the request after some time if the issue appears to be temporary</li>
+</ul>
+
+<p>These steps can help quickly identify and resolve most common API issues.</p>
+</section>
+
+</refbody>
+</reference>
